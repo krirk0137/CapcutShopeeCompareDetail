@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CapCut × Shopee Video — รวม 4 มุมมอง</title>
+<title>CapCut × Shopee Video — คู่มือรวม 6 แท็บ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,6 +23,8 @@
   --gpt:#0e9f6e;  --gpt-bg:#e7f7f0;
   --gem:#3b6ef5;  --gem-bg:#eaf0ff;
   --cla:#ee5a2c;  --cla-bg:#fdeee7;
+  --qa:#0d8f92;   --qa-bg:#e4f5f5;
+  --aff:#c2255c;  --aff-bg:#fdeaf1;
 
   --ok:#0e9f6e;   --warn:#d98200;  --bad:#d64545;
   --accent:var(--sum);
@@ -37,6 +39,8 @@
     --gpt:#3ecf95; --gpt-bg:#122b23;
     --gem:#7ea1ff; --gem-bg:#182238;
     --cla:#ff8a5c; --cla-bg:#33201a;
+    --qa:#4ecdc9; --qa-bg:#132b2c;
+    --aff:#ff7aa8; --aff-bg:#331a24;
     --ok:#3ecf95; --warn:#f0ad3d; --bad:#ff6b6b;
   }
 }
@@ -83,6 +87,7 @@ header p{color:var(--ink-soft);margin-top:10px;max-width:66ch}
 .tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor;opacity:.55}
 .tab[data-k="sum"]{--c:var(--sum)} .tab[data-k="gpt"]{--c:var(--gpt)}
 .tab[data-k="gem"]{--c:var(--gem)} .tab[data-k="cla"]{--c:var(--cla)}
+.tab[data-k="qa"]{--c:var(--qa)} .tab[data-k="aff"]{--c:var(--aff)}
 .tab .dot{background:var(--c);opacity:1}
 .tab[aria-selected="true"]{
   color:#fff;background:var(--c);border-color:var(--c);
@@ -98,6 +103,8 @@ header p{color:var(--ink-soft);margin-top:10px;max-width:66ch}
 .view[data-k="gpt"]{--accent:var(--gpt);--accent-bg:var(--gpt-bg)}
 .view[data-k="gem"]{--accent:var(--gem);--accent-bg:var(--gem-bg)}
 .view[data-k="cla"]{--accent:var(--cla);--accent-bg:var(--cla-bg)}
+.view[data-k="qa"]{--accent:var(--qa);--accent-bg:var(--qa-bg)}
+.view[data-k="aff"]{--accent:var(--aff);--accent-bg:var(--aff-bg)}
 
 .source{
   display:flex;flex-wrap:wrap;align-items:center;gap:10px;
@@ -210,7 +217,7 @@ footer p{margin-bottom:5px}
   <div class="wrap">
     <span class="eyebrow">Shopee Video Playbook · ก.ค. 2026</span>
     <h1>CapCut × Shopee Video<br>รวมความเห็นจาก 3 AI + สรุปรวม</h1>
-    <p>เอกสารเดียวกัน 4 มุมมอง — กดสลับแท็บเพื่อดูว่าแต่ละเจ้าตอบว่าอะไร แล้วดูแท็บ <b>สรุปรวม</b> ว่าตรงกันตรงไหน ต่างกันตรงไหน และควรทำอะไรจริง ๆ</p>
+    <p>เอกสารเดียวกัน 6 แท็บ — <b>สรุปรวม</b> บอกว่า 3 AI ตรงกันตรงไหน ต่างกันตรงไหน · <b>ถาม-ตอบ</b> เก็บคำถามที่ถกกันจริงพร้อมนโยบาย Shopee ที่ตรวจสอบแล้ว · <b>แผน Affiliate</b> คือแผนลงมือสำหรับคนที่ไม่มีร้านของตัวเอง</p>
   </div>
 </header>
 
@@ -221,6 +228,8 @@ footer p{margin-bottom:5px}
       <button class="tab" data-k="gpt" role="tab" aria-selected="false"><span class="dot"></span>ChatGPT</button>
       <button class="tab" data-k="gem" role="tab" aria-selected="false"><span class="dot"></span>Gemini</button>
       <button class="tab" data-k="cla" role="tab" aria-selected="false"><span class="dot"></span>Claude</button>
+      <button class="tab" data-k="qa" role="tab" aria-selected="false"><span class="dot"></span>💬 ถาม-ตอบ</button>
+      <button class="tab" data-k="aff" role="tab" aria-selected="false"><span class="dot"></span>🎯 แผน Affiliate</button>
     </div>
   </div>
 </div>
@@ -709,11 +718,420 @@ footer p{margin-bottom:5px}
 </div>
 </section>
 
+<!-- ══════════════════ 5. ถาม-ตอบ ══════════════════ -->
+<section class="view" data-k="qa" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>ถาม-ตอบ — คำถามที่ถกกันจริง</b>
+    <span>3 คำถามที่ยังไม่มีในเอกสารต้นฉบับทั้ง 3 ฉบับ · ข้อ Q1 ตรวจสอบกับนโยบาย Shopee ตัวจริงแล้ว</span>
+  </div>
+
+  <!-- ───── Q1 ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">Q1</span><h2>ลงสินค้าตัวเดิมซ้ำได้ไหม?</h2></div>
+    <p class="lead">เช่น อาทิตย์นี้ลง A B C D E F G อาทิตย์หน้าลงตัวเดิมอีกได้หรือเปล่า — ผิดกฎ Shopee ไหม</p>
+
+    <div class="good">
+      <h3>คำตอบสั้น: สินค้าซ้ำได้ แต่คลิปห้ามซ้ำ</h3>
+      <p>สองอย่างนี้คนละเรื่องกัน และ Shopee เขียนแยกไว้ชัดเจน</p>
+    </div>
+
+    <div class="scroll" style="margin-top:14px">
+      <table>
+        <thead><tr><th>กรณี</th><th class="mid">ได้/ไม่ได้</th><th>อ้างอิง</th></tr></thead>
+        <tbody>
+          <tr><td>ลงสินค้า A ซ้ำหลายครั้ง ด้วย<b>คลิปใหม่</b></td><td class="mid yes">✅ ทำได้</td><td>ไม่มีข้อห้ามในนโยบายไหนเลย</td></tr>
+          <tr><td>อัปไฟล์<b>คลิปเดิม</b>ซ้ำ</td><td class="mid" style="color:var(--bad);font-weight:600">❌ ผิดกฎ</td><td>"Video ที่ถูกอัปโหลดซ้ำบนบัญชี Shopee Video เดียวกัน"</td></tr>
+          <tr><td>จำนวนคลิปที่อัปได้ต่อวัน</td><td class="mid yes">✅ ไม่จำกัด</td><td>Shopee ไม่ได้กำหนดเพดานจำนวนวิดีโอ</td></tr>
+          <tr><td>ลงรัวทีเดียวเยอะในวันเดียว</td><td class="mid hmm">⚠️ เสี่ยง</td><td>เข้าข่าย mass posting — ระดับรุนแรงมาก <b>15 คะแนน</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn">
+      <h3>ข้อควรระวังเรื่อง Original Creator</h3>
+      <p>เงื่อนไข <i>"เนื้อหาที่ซ้ำกับของผู้ใช้อื่นหรือเนื้อหาเดิมของผู้สร้าง"</i> อยู่ใน<b>โปรแกรม Original Creator</b> (โปรแกรมรับ incentive) <b>ไม่ใช่กฎการลงคลิปทั่วไป</b></p>
+      <p style="margin-top:8px">และคำว่า "เนื้อหาซ้ำ" ไม่ได้นิยามชัดว่าหมายถึงฟุตเทจซ้ำหรือหัวข้อซ้ำ — <span class="tag t-niche">ยืนยันไม่ได้</span> ถ้าจะสมัครโปรแกรมนี้ควรเช็กกับ Shopee โดยตรง ถ้าลงปกติเฉย ๆ ไม่ต้องกังวล</p>
+    </div>
+
+    <div class="sec" style="margin-top:22px;margin-bottom:0">
+      <h3>สูตรกันคลิปซ้ำ — คิดเป็น matrix ไม่ใช่ list</h3>
+      <p class="lead">อย่าคิดว่า "สินค้า 7 ตัวหมดแล้วทำไง" ให้คิดเป็น <b>สินค้า × มุมเล่า</b></p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th class="mid">รอบ</th><th>มุมเล่า</th><th>ตัวอย่าง hook</th></tr></thead>
+          <tbody>
+            <tr><td class="mid">1</td><td><b>ปัญหา → ทางแก้</b></td><td>"เจอปัญหานี้อยู่ใช่ไหม"</td></tr>
+            <tr><td class="mid">2</td><td><b>Before / After</b></td><td>โชว์ผลลัพธ์ให้เห็นกับตา</td></tr>
+            <tr><td class="mid">3</td><td><b>วิธีใช้ / unbox</b></td><td>"ใช้ยังไงให้ได้ผลจริง"</td></tr>
+            <tr><td class="mid">4</td><td><b>เทียบกับของเดิม</b></td><td>"ต่างจากที่เคยใช้ยังไง"</td></tr>
+            <tr><td class="mid">5</td><td><b>ราคา / โปร</b></td><td>คูปองเฉพาะ Shopee Video</td></tr>
+            <tr><td class="mid">6</td><td><b>ตอบคอมเมนต์</b></td><td>คำถามที่คนถามบ่อยที่สุด</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <p><b>7 สินค้า × 6 มุม = 42 คลิป</b> — ลงวันละ 2 คลิปได้ 3 สัปดาห์เต็มโดยไม่ซ้ำมุมเลย พอครบรอบค่อยเริ่มมุมที่ 1 ใหม่ ตอนนั้นห่างกันเป็นเดือนแล้ว</p>
+        <p style="margin-top:8px"><b>กติกาเดียวที่ต้องถือ:</b> ทุกคลิปต้องถ่าย/ตัดใหม่ เปลี่ยน hook 3 วิแรกให้ไม่เหมือนเดิม — อย่า export ไฟล์เดิมแล้วอัปซ้ำ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── Q2 ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">Q2</span><h2>คลิปอยู่ถาวรอยู่แล้ว ทำไมต้องวนสินค้าเดิม?</h2></div>
+    <p class="lead">ถ้าคลิปไม่หายไปไหน ทำสินค้าใหม่ไปเรื่อย ๆ ไม่ดีกว่าเหรอ</p>
+
+    <div class="good">
+      <h3>คำตอบสั้น: ถูก — ทำหลายสินค้าก่อน ถูกแล้ว</h3>
+      <p>การวนสินค้าเดิมไม่ใช่หลักการที่ต้องทำเสมอ มันคือ<b>รางวัลสำหรับสินค้าที่พิสูจน์ตัวเองแล้ว</b></p>
+    </div>
+
+    <div class="note">
+      <h3>เหตุผลที่หนักที่สุด: คลิปคือ asset ถาวรบนหน้าสินค้า</h3>
+      <p>คลิปที่<b>ผูกกับสินค้า</b>จะไปโผล่บนหน้าสินค้านั้นตลอดไป — คนที่หาเจอทางอื่น (search, โฆษณา, แชร์) จะเห็นคลิปด้วย มันช่วยปิดการขายไปเรื่อย ๆ ไม่ใช่แค่คอนเทนต์ที่ไหลผ่านฟีด</p>
+      <p style="margin-top:8px">แปลว่า <b>สินค้าที่มี 0 คลิป = เสียโอกาสถาวร</b> ส่วนคลิปที่ 6 ของสินค้าเดิม เพิ่มค่าน้อยกว่าคลิปแรกของสินค้าที่ยังไม่มีเลยมาก</p>
+    </div>
+
+    <h3 style="margin-top:22px">ลำดับที่ถูกต้อง — กว้างก่อน แล้วค่อยลึกเฉพาะตัวที่มีสัญญาณ</h3>
+    <div class="pipe" style="margin-top:10px">
+      <div class="pstep"><div><b>ปูพรม — ทุก SKU ได้ 1 คลิป</b><small>สร้าง asset ถาวรบนหน้าสินค้าให้ครบก่อน ตรงนี้คุ้มที่สุดต่อคลิป</small></div></div>
+      <div class="pstep"><div><b>ดูข้อมูล</b><small>ตัวไหนคนดูจบ ตัวไหนคนกดตะกร้า — ตอนนี้เพิ่งมีข้อมูลจริงให้ตัดสินใจ</small></div></div>
+      <div class="pstep"><div><b>ทุ่มเฉพาะตัวที่ติด</b><small>ตัวที่มีสัญญาณได้คลิปเพิ่ม 3–5 มุมตาม matrix ข้างบน · ตัวที่เงียบเหลือคลิปเดียวพอ</small></div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>✅ วนสินค้าเดิมเมื่อ</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li>สินค้าในร้านมีน้อย (ต่ำกว่า ~10 ตัว) — ไม่มีทางเลือกอื่น</li>
+          <li>สินค้าตัวนั้นเริ่มมีสัญญาณแล้ว — ทิ้งตอนนี้คือทิ้งของที่กำลังจะเวิร์ค</li>
+          <li><b>ต้นทุนถ่ายต่ำลงมาก</b> — ของอยู่บนโต๊ะแล้ว รู้จักสินค้าแล้ว มีฟุตเทจเหลือ คลิปที่ 2 อาจใช้เวลาแค่ 1/3</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ink-faint)">
+        <h3>⛔ ยังไม่ต้องวนเมื่อ</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li>ยังมีสินค้าที่ไม่มีคลิปเลยค้างอยู่ → เอาเวลาไปทำตัวนั้นก่อน คุ้มกว่าชัดเจน</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warn">
+      <h3>ข้อควรระวังเรื่องคำว่า "ถาวร"</h3>
+      <p>คลิปอยู่ถาวรจริง แต่<b>ยอดวิวส่วนใหญ่มาช่วงแรก</b> หลังจากนั้นคุณค่าหลักเปลี่ยนจาก "ฟีดดัน" เป็น "asset บนหน้าสินค้า" — สองอย่างนี้ให้ผลคนละแบบ</p>
+      <ul class="clean" style="margin-top:8px">
+        <li>อยากได้ <b>คนใหม่</b> → ต้องมีคลิปใหม่เข้าฟีดเรื่อย ๆ</li>
+        <li>อยากได้ <b>conversion</b> → ต้องมีคลิปติดอยู่ทุกหน้าสินค้า</li>
+      </ul>
+      <p style="margin-top:8px"><span class="tag t-niche">ยืนยันไม่ได้</span> เกร็ดนี้มาจากพฤติกรรมทั่วไปของฟีดคลิปสั้น ไม่ใช่ตัวเลขที่ Shopee ประกาศ</p>
+    </div>
+  </div>
+
+  <!-- ───── Q3 ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">Q3</span><h2>ของที่ซื้อมาใช้จริง vs ของคอมสูงที่แค่ไปถ่ายรูปมา</h2></div>
+    <p class="lead">ควรทุ่มกับอันไหนมากกว่ากัน</p>
+
+    <div class="good">
+      <h3>คำตอบสั้น: ของที่ใช้จริงชนะ — และไม่ใช่เพราะเรื่องศีลธรรม แต่เพราะตัวเลขมันชนะ</h3>
+    </div>
+
+    <h3 style="margin-top:20px">กับดักของ "คอมสูง"</h3>
+    <p class="lead">คนมองค่าคอมเป็นตัวหลัก แต่มันคือ<b>ตัวคูณตัวสุดท้าย และมีผลน้อยที่สุด</b></p>
+    <div class="card">
+      <pre class="flow" style="line-height:1.6">รายได้ = ยอดวิว × CTR × conversion × ราคา × %คอม
+                └──── ของที่ใช้จริงชนะ 3 ตัวนี้ ────┘</pre>
+    </div>
+
+    <h3 style="margin-top:20px">ลองใส่ตัวเลขดู — คลิปได้ 10,000 วิวเท่ากัน</h3>
+    <div class="scroll" style="margin-top:8px">
+      <table>
+        <thead><tr><th></th><th>ของที่ใช้จริง</th><th>ของคอมสูง ไม่ได้ใช้</th></tr></thead>
+        <tbody>
+          <tr><td><b>CTR</b></td><td>5% = 500 คลิก</td><td>2% = 200 คลิก</td></tr>
+          <tr><td><b>Conversion</b></td><td>4% = 20 ออเดอร์</td><td>1% = 2 ออเดอร์</td></tr>
+          <tr><td><b>ราคา × คอม</b></td><td>300 × 8% = 24 บ.</td><td>500 × 20% = 100 บ.</td></tr>
+          <tr><td><b>ได้จริง</b></td><td class="yes" style="font-size:17px">480 บาท</td><td style="font-size:17px;color:var(--ink-faint)">200 บาท</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><span class="tag t-niche">ตัวเลขสมมติ</span> คอมสูงกว่า 2.5 เท่า ราคาแพงกว่า แต่ยังแพ้ — เพราะแพ้ทบต้นตั้งแต่ต้นกรวย</p>
+      <p style="margin-top:8px"><b>และนี่ยังไม่นับข้อที่สำคัญกว่า:</b> คลิปที่พูดจากประสบการณ์จริงมีโอกาสได้ 100,000 วิวแทน 10,000 เพราะ hook มันจริง — ตรงนี้ต่างกัน 10 เท่า ไม่ใช่ 2 เท่า</p>
+    </div>
+
+    <div class="warn">
+      <h3>ทำไมของบางตัวถึงให้คอมสูง</h3>
+      <p>ลองคิดกลับด้าน — ร้านยอมจ่าย 20% เพราะอะไร? บ่อยครั้งเพราะ<b>ขายเองไม่ออก</b> สินค้าใหม่ยังไม่มีรีวิว หรือราคาบวกไว้เยอะ</p>
+      <p style="margin-top:8px"><b>คอมสูงมักเป็นสัญญาณว่าของขายยาก ไม่ใช่ของดี</b></p>
+    </div>
+
+    <h3 style="margin-top:22px">แต่ไม่ได้แปลว่าห้ามทำของที่ไม่ได้ซื้อ</h3>
+    <p class="lead">ซื้อทุกอย่างเป็นไปไม่ได้ ประเด็นจริงคือ <b>ต้องเลือกรูปแบบคอนเทนต์ให้ตรงกับระดับที่เรารู้จริง</b></p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ระดับที่รู้</th><th>ทำคอนเทนต์แบบไหน</th><th class="mid">ผล</th></tr></thead>
+        <tbody>
+          <tr><td><b>ใช้จริง</b></td><td>รีวิว · before/after · "ใช้มา 3 เดือน" · ตอบข้อกังขา</td><td class="mid"><span class="tag t-must">แรงสุด</span></td></tr>
+          <tr><td><b>ไม่ได้ใช้ แต่รู้จริง</b><br><small style="color:var(--ink-faint)">เทียบสเปคได้ รู้ราคาตลาด</small></td><td>จัดอันดับ · เทียบ 3 ตัว · รวมของถูก · เตือนโปร</td><td class="mid"><span class="tag t-should">ทำได้</span></td></tr>
+          <tr><td><b>ไม่ได้ใช้ ไม่รู้อะไร</b><br><small style="color:var(--ink-faint)">แค่เห็นว่าคอมสูง</small></td><td>—</td><td class="mid"><span class="tag" style="background:var(--bad);color:#fff">อย่าทำ</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><b>ช่องกลางคือที่ที่ของคอมสูงอยู่ได้</b> — เล่าในฐานะ<b>คนคัดของ</b> ไม่ใช่<b>คนใช้</b> เช่น "รวม 5 ตัวในงบ 500" ทำได้เต็มปาก ไม่ต้องโกหกสักคำ</p>
+    </div>
+
+    <div class="warn">
+      <h3>ความเสี่ยงถ้าถ่ายรูปมาแล้วพูดเหมือนใช้เอง</h3>
+      <ul class="clean" style="margin-top:8px">
+        <li><b>กฎ Shopee</b> — เนื้อหาต้องตรงกับสินค้าจริง (ข้อเดียวกับที่เตือนเรื่องรูป AI ในแท็บ Claude)</li>
+        <li><b>คนดู</b> — affiliate เป็นเกมระยะยาว แนะนำพลาดครั้งเดียวคนเลิกเชื่อทั้งช่อง ซึ่งแพงกว่าคอมที่ได้เยอะ</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top:22px">วิธีที่แนะนำจริง ๆ — ลูปที่ทบต้น</h3>
+    <div class="pipe" style="margin-top:10px">
+      <div class="pstep"><div><b>เริ่มจากของที่มีอยู่แล้วในบ้าน</b><small>ต้นทุน 0 ถ่ายได้เลยวันนี้ — นี่คือสต็อกคอนเทนต์ฟรีที่คนส่วนใหญ่มองข้าม</small></div></div>
+      <div class="pstep"><div><b>ของคอมสูงที่ยังไม่ได้ใช้ → ทำเป็นคอนเทนต์เทียบ/รวม</b><small>ไม่ใช่รีวิว — พูดในฐานะคนคัดของ ซื่อสัตย์และยังมีคนดู</small></div></div>
+      <div class="pstep"><div><b>เอาเงินคอมที่ได้ไปซื้อตัวคอมสูงมาใช้จริง</b><small>เดือนหน้าอัปเกรดเป็นรีวิวเต็มรูปแบบ — นี่คือจุดที่ทบต้น คุณกำลังแปลงรายได้เป็นสิทธิ์ในการทำคอนเทนต์ที่แรงกว่า</small></div></div>
+    </div>
+    <div class="chips">
+      <span class="chip">ของในบ้าน = ต้นทุน 0</span><span class="chip">คนคัดของ ≠ คนใช้</span>
+      <span class="chip">คอมสูง = สัญญาณของขายยาก</span><span class="chip">CTR × conv สำคัญกว่า %คอม</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">📎</span><h2>แหล่งอ้างอิงที่ตรวจสอบแล้ว</h2></div>
+    <div class="card">
+      <ul class="clean">
+        <li><a href="https://help.shopee.co.th/portal/10/article/175358" target="_blank" rel="noopener">ข้อกำหนดโปรแกรม Original Creator — Shopee TH</a> <small style="color:var(--ink-faint)">(ที่มาของข้อห้ามอัปโหลดซ้ำ)</small></li>
+        <li><a href="https://help.shopee.com.my/10/article/155696-[ENG]-Shopee-Video-Community-Guidelines" target="_blank" rel="noopener">Shopee Video Community Guidelines</a> <small style="color:var(--ink-faint)">(ที่มาของ mass posting 15 คะแนน)</small></li>
+        <li><a href="https://help.shopee.co.th/portal/4/article/135182" target="_blank" rel="noopener">เงื่อนไขการให้บริการ Shopee Video — Shopee TH</a></li>
+        <li><a href="https://seller.shopee.co.th/edu/article/25670" target="_blank" rel="noopener">นโยบายการใช้งาน Shopee Video — ศูนย์เรียนรู้ผู้ขาย</a></li>
+      </ul>
+      <p style="margin-top:12px;color:var(--ink-soft);font-size:14px">ตรวจสอบเมื่อ ก.ค. 2026 — นโยบายเปลี่ยนได้ ควรเปิดลิงก์เช็กอีกครั้งก่อนตัดสินใจ</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ══════════════════ 6. แผน Affiliate ══════════════════ -->
+<section class="view" data-k="aff" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>แผนสำหรับ Affiliate — ไม่มีร้านของตัวเอง</b>
+    <span>สำหรับคนที่ซื้อของออนไลน์เยอะอยู่แล้ว และอยากถ่ายของที่มีลงเพื่อรับค่าคอมมิชชั่น</span>
+  </div>
+
+  <!-- ───── จุดยืน ───── -->
+  <div class="sec">
+    <div class="good">
+      <h3>ตำแหน่งของคุณดีกว่าคนทำ affiliate ทั่วไป</h3>
+      <p>ในแท็บ <b>ถาม-ตอบ Q3</b> สรุปไว้ว่าของที่ใช้จริงชนะขาด และปัญหาใหญ่ที่สุดของ affiliate คือ <b>ซื้อทุกอย่างไม่ไหว</b></p>
+      <p style="margin-top:8px">คุณข้ามปัญหานั้นไปแล้ว — <b>ประวัติการสั่งซื้อของคุณคือปฏิทินคอนเทนต์ที่ต้นทุน 0 บาท</b> ของอยู่ในบ้านหมดแล้ว ใช้มาแล้วจริง รู้ว่าตัวไหนดีตัวไหนห่วย นี่คือสิ่งที่คนอื่นต้องจ่ายเงินซื้อ</p>
+    </div>
+  </div>
+
+  <!-- ───── 01 สมัคร ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">01</span><h2>สมัคร Affiliate — ไม่ต้องมีร้านค้า</h2></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>สมัครผ่านแอป Shopee</h3>
+        <p style="margin-top:6px"><code>ฉัน</code> → <code>กิจกรรมอื่น ๆ</code> → <code>โปรแกรม Affiliate</code> → กรอกข้อมูล + ยืนยันอีเมล</p>
+      </div>
+      <div class="card">
+        <h3>หรือสมัครผ่านเว็บ</h3>
+        <p style="margin-top:6px"><a href="https://affiliate.shopee.co.th/" target="_blank" rel="noopener">affiliate.shopee.co.th</a> → เข้าสู่ระบบด้วยบัญชี Shopee เดิม → กรอกเบอร์ + อีเมล</p>
+      </div>
+    </div>
+    <div class="note">
+      <p><b>เงื่อนไข:</b> มีบัญชี Shopee ที่ใช้งานปกติ + มีช่องทางโปรโมท (TikTok, Facebook, IG, Lemon8, YouTube) — <b>ไม่ต้องมีร้านค้าหรือสินค้าของตัวเอง</b></p>
+      <p style="margin-top:8px">ระหว่างรออนุมัติ <b>ถ่ายคลิปไปก่อนได้เลย</b> ไม่ต้องรอ</p>
+    </div>
+  </div>
+
+  <!-- ───── 02 แพลตฟอร์ม ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">02</span><h2>ลงที่ไหนบ้าง — คำตอบคือ 2 ที่พอ</h2></div>
+    <p class="lead">แพลตฟอร์มมี 2 ประเภทที่ต่างกันมาก และนี่คือสิ่งที่ทำให้การตัดสินใจง่ายขึ้นทันที</p>
+
+    <div class="grid g2">
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>✅ ปิดการขายในแอปได้</h3>
+        <p>มีระบบ affiliate ในตัว คนกดซื้อจบในแอปเลย ไม่ต้องเด้งออก</p>
+        <div class="chips"><span class="chip">TikTok</span><span class="chip">Shopee Video</span><span class="chip">Lazada</span></div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ink-faint)">
+        <h3>➖ แค่ที่กระจายคน</h3>
+        <p>ต้องส่งคนออกไปข้างนอก แถมแพลตฟอร์มกดการมองเห็นของโพสต์ที่มีลิงก์ออก — <b>conversion ต่ำกว่าหลายเท่า</b></p>
+        <div class="chips"><span class="chip">YouTube</span><span class="chip">Facebook</span><span class="chip">IG</span><span class="chip">Threads</span></div>
+      </div>
+    </div>
+
+    <div class="scroll" style="margin-top:16px">
+      <table>
+        <thead><tr><th class="mid">ลำดับ</th><th>แพลตฟอร์ม</th><th>เหตุผล</th></tr></thead>
+        <tbody>
+          <tr><td class="mid"><span class="tag t-must">ทำเลย</span></td><td><b>TikTok</b></td><td>reach ธรรมชาติดีที่สุดสำหรับคนเริ่มจาก 0 ผู้ติดตาม — <b>ถ้าเลือกได้ที่เดียว เลือกอันนี้</b></td></tr>
+          <tr><td class="mid"><span class="tag t-must">ทำเลย</span></td><td><b>Shopee Video</b></td><td>คู่แข่งน้อย และคนที่ดูอยู่ตั้งใจซื้ออยู่แล้ว มีบัตรผูกไว้แล้ว — conversion ต่อวิวสูงสุด</td></tr>
+          <tr><td class="mid"><span class="tag t-should">ทีหลัง</span></td><td><b>YouTube Shorts · IG Reels · FB Reels</b></td><td>ใช้ไฟล์เดียวกันเป๊ะ ไม่ต้องตัดใหม่ อัปแค่ 2 นาที — คุ้มเมื่อมีคลิปสะสมแล้ว</td></tr>
+          <tr><td class="mid"><span class="tag t-should">ทีหลัง</span></td><td><b>Lazada</b></td><td>ถ้าซื้อที่นั่นอยู่แล้ว ฟอร์แมตเหมือนกันหมด</td></tr>
+          <tr><td class="mid"><span class="tag t-maybe">น่าลอง</span></td><td><b>Lemon8</b></td><td>Shopee ระบุเป็นช่องทางโปรโมทที่ยอมรับ · เป็นของ ByteDance เหมือน TikTok · คนใช้เน้นไลฟ์สไตล์/ช้อปปิ้ง คู่แข่งยังน้อย</td></tr>
+          <tr><td class="mid"><span class="tag t-maybe">น่าลอง</span></td><td><b>LINE OA / กลุ่ม LINE</b></td><td>คนไทยกดซื้อจากลิงก์ใน LINE สูงผิดคาด แต่ต้องมีคนตามก่อนถึงมีค่า</td></tr>
+          <tr><td class="mid"><span class="tag" style="background:var(--bad);color:#fff">ข้ามไป</span></td><td><b>Threads</b></td><td>เน้นข้อความ ไม่เหมาะคลิป และคนไม่ได้เข้ามาเพื่อช้อป</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn">
+      <h3>ข้อที่สำคัญที่สุดในหน้านี้</h3>
+      <p><b>คอขวดของคุณไม่ใช่จำนวนแพลตฟอร์ม — คือจำนวนคลิป</b></p>
+      <ul class="clean" style="margin-top:8px">
+        <li>เพิ่มแพลตฟอร์ม = คลิปเดิมมีคนเห็นมากขึ้นนิดหน่อย</li>
+        <li>เพิ่มคลิป = <b>มีตั๋วลุ้นเพิ่มอีกใบ</b></li>
+      </ul>
+      <p style="margin-top:10px">ช่วงแรกยังไม่รู้ว่าอะไรเวิร์ค ตั๋วลุ้นสำคัญกว่ามาก — <b>ทำ 60 คลิปลง 2 ที่ ชนะทำ 10 คลิปลง 6 ที่ ขาดลอย</b></p>
+      <p style="margin-top:8px">โหมดพังที่เจอบ่อยที่สุด: ตั้งครบ 6 แพลตฟอร์ม ลงได้ 5 คลิป เหนื่อย แล้วเลิก</p>
+    </div>
+  </div>
+
+  <!-- ───── 03 กฎข้ามแพลตฟอร์ม ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">03</span><h2>กฎข้ามแพลตฟอร์มที่ห้ามพลาด</h2></div>
+    <p class="lead">คุณซื้อทั้ง Shopee · Lazada · TikTok — ถ่ายครั้งเดียวลงได้ 3 ที่ แต่มีกฎที่ผิดง่ายมาก</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ข้อห้ามตามนโยบาย Shopee</th><th>แปลว่าต้องทำยังไง</th></tr></thead>
+        <tbody>
+          <tr><td>"เนื้อหาที่ชี้นำให้ซื้อสินค้าจากแพลตฟอร์มอื่น"</td><td>คลิปที่ลง Shopee <b>ห้ามเอ่ยถึง Lazada / TikTok เลยแม้แต่คำเดียว</b></td></tr>
+          <tr><td>"เนื้อหาที่มีลายน้ำที่ไม่ตรงกับชื่อผู้ใช้ใน Shopee"</td><td>ห้ามโหลดคลิปจาก TikTok (ติดลายน้ำ) ไปลง Shopee</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="good">
+      <h3>วิธีที่ถูกต้อง</h3>
+      <p>ถ่ายเก็บเป็นไฟล์ดิบ → ตัดใน CapCut → <b>export สดทุกครั้ง</b> → เก็บไฟล์ที่ export ไว้ในโฟลเดอร์เดียว → อัปจากไฟล์นั้นไปทุกแพลตฟอร์ม</p>
+      <p style="margin-top:8px"><b>อย่าใช้ทางลัดโหลดจากแพลตฟอร์มหนึ่งไปลงอีกที่</b> — นอกจากผิดกฎ Shopee แล้ว TikTok เองก็กดการมองเห็นคลิปที่มีลายน้ำเจ้าอื่นด้วย</p>
+    </div>
+  </div>
+
+  <!-- ───── 04 ฟอร์แมต ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">04</span><h2>4 ฟอร์แมตที่คุณได้เปรียบ และแทบไม่มีใครทำ</h2></div>
+    <p class="lead">คู่แข่งที่รับของฟรีมารีวิวทำสามข้อแรกไม่ได้เลย — เพราะเขาไม่ได้ซื้อเอง</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ฟอร์แมต</th><th>ทำไมแรง</th></tr></thead>
+        <tbody>
+          <tr><td><b>"ใช้มา 6 เดือนแล้ว"</b></td><td>ปลอมไม่ได้ ต้องซื้อจริงเท่านั้น — <b>รีวิวระยะยาวคือช่องว่างที่ใหญ่ที่สุดในตลาด</b></td></tr>
+          <tr><td><b>"ตัวนี้ซื้อซ้ำรอบที่ 3"</b></td><td>สัญญาณความน่าเชื่อถือที่แรงที่สุดเท่าที่มี ไม่มีคำโฆษณาไหนสู้ได้</td></tr>
+          <tr><td><b>"ของที่ซื้อแล้วเสียดายเงิน"</b></td><td>คนดูจบสูงมาก สร้างความเชื่อใจเร็วกว่ารีวิวชมอย่างเดียวหลายเท่า</td></tr>
+          <tr><td><b>"รวมของที่สั่งเดือนนี้"</b></td><td>ถ่ายทีเดียวได้หลายตัว เหมาะกับการทำ batch ที่สุด</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ───── 05 batch ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">05</span><h2>เช็กลิสต์ถ่าย batch 20 ตัวในวันเดียว</h2></div>
+    <p class="lead">จุดที่ประหยัดเวลาที่สุดคือ<b>ตอนถ่าย</b> ไม่ใช่ตอนตัดต่อ — จัดกล้องครั้งเดียวแล้วสลับของเข้าออก</p>
+    <div class="pipe">
+      <div class="pstep"><div><b>เปิดประวัติการสั่งซื้อ เลือก 20 ตัว</b><small>เอาเฉพาะตัวที่<b>ยังใช้อยู่และชอบจริง</b> — ตัวที่เฉย ๆ ข้ามไปก่อน ยังมีเวลาอีกเยอะ</small></div></div>
+      <div class="pstep"><div><b>ตั้งกล้องแนวตั้ง 9:16 ครั้งเดียว</b><small>หาที่แสงสว่าง ตั้งขาตั้งให้นิ่ง ตั้งพื้นหลังให้เรียบ แล้ว<b>ห้ามขยับอีกเลยทั้งวัน</b></small></div></div>
+      <div class="pstep"><div><b>วางของทั้ง 20 ตัวเรียงไว้ข้าง ๆ</b><small>หยิบเข้าหยิบออกได้เร็ว ไม่ต้องเดินหา — ความเร็วอยู่ตรงนี้</small></div></div>
+      <div class="pstep"><div><b>ต่อ 1 ตัวใช้ 3–5 นาที</b><small>โชว์ของ 30 วิ · ใช้งานจริง 30 วิ · เก็บดีเทลใกล้ ๆ 20 วิ — <b>ถ่าย b-roll ให้เหลือเฟือ</b> ตัดทิ้งง่ายกว่าถ่ายเพิ่ม</small></div></div>
+      <div class="pstep"><div><b>ตั้งชื่อไฟล์ทันทีหลังถ่ายจบแต่ละตัว</b><small>เช่น <code>01_ครีมกันแดด_A</code> — ถ้าปล่อยไว้ถึงตอนตัด จะจำไม่ได้ว่าอันไหนคืออะไร</small></div></div>
+      <div class="pstep"><div><b>ตัดใน CapCut ทีละคลิปตาม matrix 6 มุม</b><small>ดูตาราง "สินค้า × มุมเล่า" ในแท็บ <b>💬 ถาม-ตอบ Q1</b> — ฟุตเทจชุดเดียวทำได้หลายมุม</small></div></div>
+    </div>
+    <div class="chips">
+      <span class="chip">จัดกล้องครั้งเดียว</span><span class="chip">3–5 นาที/ตัว</span><span class="chip">b-roll เหลือเฟือ</span>
+      <span class="chip">ตั้งชื่อไฟล์ทันที</span><span class="chip">20 ตัว ≈ ครึ่งวัน</span>
+    </div>
+  </div>
+
+  <!-- ───── 06 ปฏิทิน ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">06</span><h2>ปฏิทิน 3 สัปดาห์แรก</h2></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th class="mid">ช่วง</th><th>ทำอะไร</th><th>เป้าหมายที่วัดได้</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="mid"><b>สัปดาห์ 1</b></td>
+            <td>สมัคร affiliate ทั้ง 3 · ถ่าย batch 20 ตัว (1 วัน) · ตัดคลิปสะสม</td>
+            <td>มีคลิปพร้อมลง <b>7 คลิป</b> · ลงวันละ 1 (TikTok + Shopee)</td>
+          </tr>
+          <tr>
+            <td class="mid"><b>สัปดาห์ 2</b></td>
+            <td>ลงวันละ 2 คลิป · ถ่าย batch รอบ 2 · เริ่มตอบคอมเมนต์ทุกวัน</td>
+            <td>ลงครบ <b>21 คลิปสะสม</b></td>
+          </tr>
+          <tr>
+            <td class="mid"><b>สัปดาห์ 3</b></td>
+            <td>ดูข้อมูลว่าคลิปไหนคนดูจบ · ทำเพิ่มเฉพาะแนวที่ติด</td>
+            <td>ลงครบ <b>30+ คลิป</b> · รู้แล้วว่าแนวไหนเวิร์ค</td>
+          </tr>
+          <tr>
+            <td class="mid"><b>หลัง 30 คลิป</b></td>
+            <td>เปิด YouTube Shorts / IG / FB (อัปไฟล์เดิม) · เพิ่ม Lazada + Lemon8</td>
+            <td>ขยายช่องทางโดยไม่เพิ่มงานตัดต่อ</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><b>สังเกตว่าเป้าหมาย 3 สัปดาห์แรกคือ "จำนวนคลิป" ไม่ใช่ "ยอดขาย"</b> — ตั้งเป้าที่ยอดขายตอนนี้จะท้อแน่นอน เพราะมันยังไม่ขึ้น ตั้งเป้าที่สิ่งที่คุมได้เองแทน</p>
+    </div>
+  </div>
+
+  <!-- ───── 07 ความจริง ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">07</span><h2>3 เรื่องที่ต้องรู้ก่อนเริ่ม</h2></div>
+    <div class="grid g2">
+      <div class="warn">
+        <h3>"ค่าคอมสูงสุด 60%" คือพาดหัว</h3>
+        <p>อัตราจริงส่วนใหญ่ <b>ต่ำกว่านั้นมาก</b> ขึ้นกับหมวดสินค้าและแคมเปญ — อย่าวางแผนรายได้จากตัวเลขนี้ ให้เปิด<a href="https://help.shopee.co.th/portal/10/article/123898" target="_blank" rel="noopener">ตารางอัตราจริง</a>ดูเอง</p>
+      </div>
+      <div class="warn">
+        <h3>2–3 เดือนแรกน่าจะได้เกือบ 0</h3>
+        <p>เรื่องปกติของ affiliate ทุกคน — แต่เคสคุณต่างตรงที่ <b>ต้นทุนเป็น 0 อยู่แล้ว</b> ของซื้อไปแล้ว เสียแค่เวลาถ่าย ความเสี่ยงต่ำมาก แค่อย่าคาดหวังเร็วแล้วท้อไปก่อน</p>
+      </div>
+      <div class="card">
+        <h3>💰 รายได้ affiliate ต้องยื่นภาษี</h3>
+        <p>ยังไม่ต้องคิดตอนนี้ แต่ <b>เก็บ statement ไว้ตั้งแต่แรก</b> จะง่ายกว่ามาก อย่าไปตามหาย้อนหลังตอนสิ้นปี</p>
+      </div>
+      <div class="card">
+        <h3>🤝 อย่าแนะนำของที่ตัวเองไม่เชื่อ</h3>
+        <p>affiliate เป็นเกมระยะยาว แนะนำพลาดครั้งเดียวคนเลิกเชื่อทั้งช่อง ซึ่งแพงกว่าค่าคอมที่ได้เยอะ — ดูตาราง "3 ระดับที่รู้จริง" ในแท็บ <b>ถาม-ตอบ Q3</b></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── สรุป ───── -->
+  <div class="sec">
+    <div class="note">
+      <h3>ถ้าจำได้ข้อเดียว</h3>
+      <p style="font-size:17px;margin-top:6px"><b>เปิดประวัติการสั่งซื้อ เลือก 20 ตัวที่ชอบจริง ถ่ายให้จบในวันเดียว แล้วทยอยลง TikTok + Shopee Video วันละ 1–2 คลิป</b></p>
+      <p style="margin-top:10px">ที่เหลือทั้งหมดในเอกสารนี้คือรายละเอียด — ข้อนี้ข้อเดียวคือ 80% ของผลลัพธ์</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <p><b>CapCut × Shopee Video — รวม 4 มุมมอง</b> · ข้อมูล ณ ก.ค. 2026</p>
+    <p><b>CapCut × Shopee Video — คู่มือรวม 6 แท็บ</b> · ข้อมูล ณ ก.ค. 2026</p>
     <p>รวมจาก <code>ChatGPT.html</code> · <code>gemini-code-1784687864241.html</code> · <code>shopee-video-capcut-playbook.html</code> — เนื้อหาต้นฉบับคงไว้ตามเดิม ยกเว้นตาราง Free/Pro ของ Gemini ที่ต้นฉบับใช้แท็กผิดจนตารางแตก</p>
     <p>CapCut และ Shopee เปลี่ยนฟีเจอร์บ่อยและต่างกันตามภูมิภาค — ควรเช็กในแอปอีกครั้งก่อนตัดสินใจจ่ายเงิน</p>
   </div>
