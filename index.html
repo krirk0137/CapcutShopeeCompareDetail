@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CapCut × Shopee Video — คู่มือรวม 7 แท็บ</title>
+<title>CapCut × Shopee Video — คู่มือรวม 8 แท็บ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,6 +26,7 @@
   --qa:#0d8f92;   --qa-bg:#e4f5f5;
   --aff:#c2255c;  --aff-bg:#fdeaf1;
   --web:#8a6000;  --web-bg:#fbf1dc;
+  --cut:#7e22ce;  --cut-bg:#f5eafd;
 
   --ok:#0e9f6e;   --warn:#d98200;  --bad:#d64545;
   --accent:var(--sum);
@@ -43,6 +44,7 @@
     --qa:#4ecdc9; --qa-bg:#132b2c;
     --aff:#ff7aa8; --aff-bg:#331a24;
     --web:#e8b647; --web-bg:#332a10;
+    --cut:#c98bf5; --cut-bg:#2a1838;
     --ok:#3ecf95; --warn:#f0ad3d; --bad:#ff6b6b;
   }
 }
@@ -90,7 +92,7 @@ header p{color:var(--ink-soft);margin-top:10px;max-width:66ch}
 .tab[data-k="sum"]{--c:var(--sum)} .tab[data-k="gpt"]{--c:var(--gpt)}
 .tab[data-k="gem"]{--c:var(--gem)} .tab[data-k="cla"]{--c:var(--cla)}
 .tab[data-k="qa"]{--c:var(--qa)} .tab[data-k="aff"]{--c:var(--aff)}
-.tab[data-k="web"]{--c:var(--web)}
+.tab[data-k="web"]{--c:var(--web)} .tab[data-k="cut"]{--c:var(--cut)}
 .tab .dot{background:var(--c);opacity:1}
 .tab[aria-selected="true"]{
   color:#fff;background:var(--c);border-color:var(--c);
@@ -109,6 +111,23 @@ header p{color:var(--ink-soft);margin-top:10px;max-width:66ch}
 .view[data-k="qa"]{--accent:var(--qa);--accent-bg:var(--qa-bg)}
 .view[data-k="aff"]{--accent:var(--aff);--accent-bg:var(--aff-bg)}
 .view[data-k="web"]{--accent:var(--web);--accent-bg:var(--web-bg)}
+.view[data-k="cut"]{--accent:var(--cut);--accent-bg:var(--cut-bg)}
+
+/* จอมือถือจำลอง — โซนปลอดภัยของข้อความ */
+.frame{max-width:210px;margin:0 auto;aspect-ratio:9/16;border-radius:18px;
+  border:2px solid var(--line);background:var(--card);overflow:hidden;
+  display:grid;grid-template-rows:15% 1fr 20%;font-size:11.5px;text-align:center}
+.frame .zone{display:grid;place-items:center;padding:8px;line-height:1.45}
+.frame .danger{color:var(--bad);font-weight:600;
+  background:repeating-linear-gradient(45deg,transparent,transparent 5px,
+    color-mix(in srgb,var(--bad) 16%,transparent) 5px,color-mix(in srgb,var(--bad) 16%,transparent) 10px)}
+.frame .safe{color:var(--ok);font-weight:600;background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.beat{display:grid;grid-template-columns:86px 1fr;gap:14px;align-items:start;
+  padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.beat:last-child{border-bottom:none}
+.beat .tc{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;font-weight:600;
+  color:#fff;background:var(--accent);border-radius:6px;padding:3px 0;text-align:center}
+.beat small{display:block;color:var(--ink-soft);font-size:13.5px;line-height:1.6;margin-top:2px}
 pre.code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:13px;line-height:1.75;
   white-space:pre;overflow-x:auto;background:var(--line-soft);border:1px solid var(--line);
   border-radius:12px;padding:16px;color:var(--ink)}
@@ -224,7 +243,7 @@ footer p{margin-bottom:5px}
   <div class="wrap">
     <span class="eyebrow">Shopee Video Playbook · ก.ค. 2026</span>
     <h1>CapCut × Shopee Video<br>รวมความเห็นจาก 3 AI + สรุปรวม</h1>
-    <p>เอกสารเดียวกัน 7 แท็บ — <b>สรุปรวม</b> บอกว่า 3 AI ตรงกันตรงไหน ต่างกันตรงไหน · <b>ถาม-ตอบ</b> เก็บคำถามที่ถกกันจริงพร้อมนโยบาย Shopee ที่ตรวจสอบแล้ว · <b>แผน Affiliate</b> คือแผนลงมือสำหรับคนที่ไม่มีร้านของตัวเอง · <b>เว็บรวมสินค้า</b> คือเป้าหมายระยะยาว</p>
+    <p>เอกสารเดียวกัน 8 แท็บ — <b>สรุปรวม</b> บอกว่า 3 AI ตรงกันตรงไหน ต่างกันตรงไหน · <b>ถาม-ตอบ</b> เก็บคำถามที่ถกกันจริงพร้อมนโยบาย Shopee ที่ตรวจสอบแล้ว · <b>แผน Affiliate</b> คือแผนลงมือสำหรับคนที่ไม่มีร้านของตัวเอง · <b>สูตรตัดคลิป</b> เปิดค้างไว้ตอนตัดจริง · <b>รวมลิงก์ + เว็บ</b> คือเป้าหมายระยะยาว</p>
   </div>
 </header>
 
@@ -238,6 +257,7 @@ footer p{margin-bottom:5px}
       <button class="tab" data-k="qa" role="tab" aria-selected="false"><span class="dot"></span>💬 ถาม-ตอบ</button>
       <button class="tab" data-k="aff" role="tab" aria-selected="false"><span class="dot"></span>🎯 แผน Affiliate</button>
       <button class="tab" data-k="web" role="tab" aria-selected="false"><span class="dot"></span>🌐 รวมลิงก์ + เว็บ</button>
+      <button class="tab" data-k="cut" role="tab" aria-selected="false"><span class="dot"></span>✂️ สูตรตัดคลิป</button>
     </div>
   </div>
 </div>
@@ -1577,11 +1597,183 @@ Gaming🔥,🖱️เมาส์ Mouse,ATK A9 (Air/Mini+⭐️),ดีกว่
 </div>
 </section>
 
+<!-- ══════════════════ 8. สูตรตัดคลิป ══════════════════ -->
+<section class="view" data-k="cut" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>สูตรตัดคลิป — ไม่มีเสียงพูด มีแต่เพลง + ข้อความ</b>
+    <span>เปิดแท็บนี้ค้างไว้ตอนตัดจริง · ฟอร์แมตนี้มาจากการไถดู Shopee Video จริงว่าคลิปที่มีอยู่เป็นแบบไหน</span>
+  </div>
+
+  <!-- ───── 01 หลักคิด ───── -->
+  <div class="sec">
+    <div class="good">
+      <h3>ฟอร์แมตนี้ถูกแล้ว — เพราะมันเข้ากับแผนถ่าย batch พอดี</h3>
+      <ul class="clean" style="margin-top:8px">
+        <li><b>ถ่าย 20 ตัวในวันเดียวได้จริง</b> — ถ้าต้องพากย์ ต้องหาที่เงียบ อัดใหม่เมื่อพูดผิด แก้เสียง วันหนึ่งได้ 5 ตัวก็เก่งแล้ว</li>
+        <li><b>คนดูปิดเสียงอยู่แล้ว</b> — ข้อความคือสิ่งที่คนอ่านจริง</li>
+        <li><b>ไม่ต้องออกกล้อง ไม่ต้องมีเสียงดี</b> — ตัดอุปสรรคทางใจที่ทำให้คนเลิกกลางทาง</li>
+        <li><b>แก้ทีหลังง่าย</b> — พิมพ์ผิดแก้ 10 วินาที ถ้าพากย์ต้องอัดใหม่ทั้งท่อน</li>
+      </ul>
+    </div>
+
+    <div class="warn">
+      <h3>แต่มีความเสี่ยงข้อเดียว</h3>
+      <p>"Shopee Video มีแต่คลิปแบบนี้" แปลได้ 2 ทาง — ทางหนึ่งคือฟอร์แมตนี้ใช้ได้จริง อีกทางคือ <b>มันคือเส้นมาตรฐาน ไม่ใช่จุดต่าง</b></p>
+      <p style="margin-top:8px">ถ้าทำเหมือนทุกคนเป๊ะ คนไถผ่านก็ไม่มีเหตุผลจะหยุดที่คลิปคุณแทนคลิปถัดไปที่หน้าตาเหมือนกัน</p>
+      <p style="margin-top:10px"><b>แต่คุณมีของที่คนทำคลิปพวกนั้นส่วนใหญ่ไม่มี — คุณซื้อและใช้จริง</b> คลิปสวย ๆ พวกนั้นมักทำโดยร้านที่ไม่ได้ใช้สินค้า มันเลยได้แค่ "ของดูดี" ไม่ได้ "ของใช้แล้วเป็นยังไง"</p>
+    </div>
+  </div>
+
+  <!-- ───── 02 ข้อความ ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">01</span><h2>ข้อความคือจุดที่ชนะได้ ไม่ใช่ภาพ</h2></div>
+    <p class="lead">ภาพสวยทุกคนทำได้ด้วย AI แต่ประโยคข้างล่างขวามือ มีแต่คนที่ใช้ของจริงเท่านั้นที่เขียนได้</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ข้อความที่ทุกคนใช้</th><th>ข้อความที่มีแต่คุณเขียนได้</th></tr></thead>
+        <tbody>
+          <tr><td class="no">"คุณภาพดี ทนทาน"</td><td class="yes">"ใช้มา 6 เดือน ยังไม่พัง"</td></tr>
+          <tr><td class="no">"หอมยาวนาน"</td><td class="yes">"ติดทนถึงเย็น แต่วันฝนตกจืดเร็ว"</td></tr>
+          <tr><td class="no">"คุ้มค่าคุ้มราคา"</td><td class="yes">"ซื้อซ้ำรอบที่ 3 แล้ว"</td></tr>
+          <tr><td class="no">"ใช้งานง่าย"</td><td class="yes">"ครั้งแรกงงนิดนึง พอจับทางได้ 2 นาทีเสร็จ"</td></tr>
+          <tr><td class="no">"แนะนำเลยค่ะ"</td><td class="yes">"ข้อเสียคือเสียงดังไปหน่อย แต่ยอมรับได้ในราคานี้"</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><b>ใช้ฟอร์แมตเดิม แต่ใส่ของที่ฟอร์แมตนั้นไม่มี</b> — นี่คือหัวใจของทั้งแท็บนี้ ถ้าจำได้ข้อเดียว จำข้อนี้</p>
+    </div>
+  </div>
+
+  <!-- ───── 03 โครงคลิป ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">02</span><h2>โครงคลิป ~25 วินาที</h2></div>
+    <p class="lead">เขียนข้อความทั้ง 5 ท่อนให้เสร็จ<b>ก่อนถ่าย</b> แล้วคุณจะรู้ทันทีว่าต้องถ่ายช็อตอะไรบ้าง — ตอน batch 20 ตัวจะเร็วขึ้นมหาศาล</p>
+    <div class="card">
+      <div class="beat"><span class="tc">0:00–0:03</span><div><b>HOOK</b><small>ผลลัพธ์ / ปัญหา / ราคา — ข้อความ 3–5 คำ<br><b style="color:var(--bad)">ห้ามเปิดด้วยรูปสินค้าบนพื้นขาว</b> เพราะทุกคนทำแบบนั้น คนไถผ่านทันที</small></div></div>
+      <div class="beat"><span class="tc">0:03–0:06</span><div><b>ชื่อสินค้า + ราคา</b><small>บอกให้ชัดว่ากำลังดูอะไรอยู่ ราคาช่วยกรองคนที่ไม่ใช่ออกไปตั้งแต่ต้น</small></div></div>
+      <div class="beat"><span class="tc">0:06–0:15</span><div><b>จุดเด่น 2–3 ข้อ</b><small><b>หนึ่งข้อ หนึ่งช็อต</b> อย่ายัดหลายข้อในภาพเดียว — ตรงนี้ใช้วิดีโอโชว์การใช้งานจริง</small></div></div>
+      <div class="beat"><span class="tc">0:15–0:22</span><div><b>ความเห็นจริง ⭐</b><small>"ใช้มา X เดือน" / <b>"ข้อเสียคือ…"</b><br>ท่อนนี้แทบไม่มีใครกล้าใส่ และเป็นตัวสร้างความเชื่อใจเร็วที่สุดในคลิป</small></div></div>
+      <div class="beat"><span class="tc">0:22–0:25</span><div><b>CTA</b><small>"กดตะกร้าเหลือง" / "โค้ดอยู่ในคลิป" — สั้น ชัด ไม่ต้องอ้อม</small></div></div>
+    </div>
+  </div>
+
+  <!-- ───── 04 safe area ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">03</span><h2>วางข้อความตรงไหน — โซนที่ UI ทับ</h2></div>
+    <p class="lead">ข้อนี้คนพลาดเยอะที่สุด ตัดมาสวยแล้วโดนปุ่มบัง อ่านไม่ออกทั้งคลิป</p>
+    <div class="grid g2">
+      <div>
+        <div class="frame">
+          <div class="zone danger">บน ~15%<br>ห้ามวาง</div>
+          <div class="zone safe">✅ โซนปลอดภัย<br><span style="font-weight:400;color:var(--ink-soft)">วางข้อความทั้งหมดตรงนี้</span></div>
+          <div class="zone danger">ล่าง ~20%<br>ห้ามวาง</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>อะไรมาทับบ้าง</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li><b>ล่าง ~20%</b> — ปุ่มตะกร้า · แท็กสินค้า · ชื่อร้าน · คำบรรยาย · แถบเพลง</li>
+          <li><b>บน ~15%</b> — ปุ่มย้อนกลับ · ค้นหา · แถบสถานะมือถือ</li>
+          <li><b>ขวา</b> — ปุ่มไลก์/แชร์/คอมเมนต์ ในบางแพลตฟอร์ม <b>เผื่อขอบขวาไว้ด้วย</b></li>
+        </ul>
+        <p style="margin-top:12px"><b>วิธีเช็กเร็ว ๆ:</b> export แล้วอัปเป็นฉบับร่าง เปิดดูในแอปจริงบนมือถือ ก่อนจะตัดอีก 19 คลิปที่เหลือด้วยเทมเพลตเดียวกัน</p>
+      </div>
+    </div>
+    <div class="note">
+      <p><b>หนึ่งหน้าจอ หนึ่งความคิด ~1.5–2.5 วินาที</b> — คนอ่านได้ทีละ 3–5 คำ อย่ายัดเป็นย่อหน้า ถ้าข้อความยาวเกินคนข้ามทันที</p>
+    </div>
+  </div>
+
+  <!-- ───── 05 กฎตัดต่อ ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">04</span><h2>6 กฎตัดต่อที่ช่วยได้จริง</h2></div>
+    <div class="grid g2">
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>1. ตัดให้ตรงจังหวะเพลง</h3>
+        <p>CapCut มีปุ่มจับบีตอัตโนมัติ — <b>อย่างเดียวนี้ทำให้คลิปมือใหม่ดูเป็นมืออาชีพทันที</b> สำคัญกว่าเอฟเฟกต์ทุกตัวรวมกัน</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>2. ทรานซิชันน้อย ๆ ดีกว่า</h3>
+        <p>ใส่ทรานซิชันหวือหวาทุกคัต = สัญญาณมือใหม่ และทำให้จังหวะช้าลง <b>ใช้คัตแข็ง ๆ ตรงบีตเป็นหลัก</b> เก็บทรานซิชันเท่ ๆ ไว้ท่าเดียวเป็นลายเซ็น</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>3. รูปนิ่งต้องขยับ</h3>
+        <p>รูปที่ค้างนิ่ง 2 วินาทีคนไถผ่านทันที <b>ใส่ซูมช้าหรือแพนทุกใบ</b> ไม่มีข้อยกเว้น</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>4. แบ่งงานให้ถูก</h3>
+        <p><b>วิดีโอ</b> → การใช้งาน ผลลัพธ์ การเคลื่อนไหว<br><b>รูปนิ่ง</b> → ดีเทล สเปค การ์ดราคา</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>5. ทำเทมเพลตเดียวแล้วใช้ซ้ำ</h3>
+        <p>ฟอนต์เดียว สีเดียว ตำแหน่งเดียว — <b>พอคนไถเจอคลิปที่ 3 ของคุณแล้วจำได้ว่า "อ๋อ ช่องนี้"</b> นั่นคือตอนที่แบรนด์เริ่มทำงาน CapCut เซฟ text preset ได้</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>6. เขียนข้อความก่อนถ่าย</h3>
+        <p>เพราะไม่มีเสียงพูด <b>ข้อความคือบท</b> เขียนให้เสร็จก่อน แล้วถ่ายเพื่อเติมช่องว่าง ไม่ใช่ถ่ายมั่วแล้วมานั่งคิดทีหลัง</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── 06 เสียง ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">05</span><h2>เรื่องเสียง</h2></div>
+    <div class="warn">
+      <h3>❌ อย่าใช้ AI voice ถึงจะสะดวก</h3>
+      <p>เสียง AI ฟังออกทันทีและทำให้คลิปดูเหมือนร้านดรอปชิปทั่วไป — <b>ซึ่งขัดกับจุดขายเดียวของคุณคือ "คนใช้จริง"</b></p>
+      <p style="margin-top:8px">ข้อความเงียบ ๆ ดูจริงใจกว่าเสียง AI เยอะ</p>
+    </div>
+    <div class="good">
+      <h3>✅ แต่มี 2 แนวที่ควรลองพากย์เสียงตัวเอง</h3>
+      <p><b>"ของที่ซื้อแล้วเสียดายเงิน"</b> และ <b>"รีวิว 6 เดือน"</b> — สองแนวนี้เสียงจริงเพิ่มความน่าเชื่อถือแบบที่ตัวหนังสือให้ไม่ได้</p>
+      <p style="margin-top:8px"><b>ทำเดือนละครั้งพอ ไม่ต้องทุกคลิป</b> — เก็บไว้ใช้กับคลิปที่ตั้งใจให้เป็นตัวชูโรง</p>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h3>🎵 เรื่องเพลง</h3>
+      <p>เพลงติดเทรนด์ช่วยเรื่องการมองเห็น แต่<b>คลิปขายของควรใช้เพลงที่เคลียร์ลิขสิทธิ์แล้ว</b> (ดูแท็บ Claude ข้อ 04) — และเพลงเป็นตัวกำหนดจังหวะคลิปด้วย เพลงเร็ว = คัตถี่ = รู้สึกกระฉับกระเฉง</p>
+    </div>
+  </div>
+
+  <!-- ───── 07 เช็กลิสต์ ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">06</span><h2>เช็กลิสต์ก่อนกด Export</h2></div>
+    <p class="lead">ไล่ 8 ข้อนี้ทุกครั้ง ใช้เวลา 30 วินาที แต่กันพลาดซ้ำ ๆ ได้ทั้งชุด</p>
+    <div class="card">
+      <ul class="clean">
+        <li><b>3 วินาทีแรกมี hook แล้วหรือยัง</b> — ไม่ใช่รูปสินค้าบนพื้นขาว</li>
+        <li><b>ข้อความอยู่ในโซนปลอดภัยทั้งหมด</b> — ไม่ล้ำบน 15% ล่าง 20%</li>
+        <li><b>อ่านทันทุกหน้าจอ</b> — ลองดูรวดเดียวโดยไม่หยุด ถ้าอ่านไม่ทันให้ยืดเวลาหรือตัดคำ</li>
+        <li><b>คัตตรงบีตเพลง</b></li>
+        <li><b>รูปนิ่งทุกใบมีซูมหรือแพน</b></li>
+        <li><b>มีท่อนความเห็นจริง</b> — "ใช้มา X เดือน" หรือ "ข้อเสียคือ…"</li>
+        <li><b>มี CTA ตอนจบ</b></li>
+        <li><b>ความยาวรวม 15–30 วินาที</b> · แนวตั้ง 9:16 · เปิด "เพิ่มคุณภาพ" ตอนอัป</li>
+      </ul>
+    </div>
+    <div class="note">
+      <p><b>อย่าลืม:</b> export สดจาก CapCut ทุกครั้ง เก็บไฟล์ไว้โฟลเดอร์เดียว แล้วอัปจากไฟล์นั้นไปทุกแพลตฟอร์ม — <b>ห้ามโหลดจาก TikTok ไปลง Shopee</b> (ลายน้ำผิดกฎ ดูแท็บ 🎯 ข้อ 03)</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="note">
+      <h3>สรุปแท็บนี้</h3>
+      <p style="font-size:17px;margin-top:6px"><b>ภาพสวยคือค่าผ่านประตู — ข้อความที่จริงใจคือสิ่งที่ทำให้คนกดซื้อ</b></p>
+      <p style="margin-top:10px">คู่แข่งของคุณทำภาพสวยได้เท่ากันหรือดีกว่า แต่เขาเขียน "ใช้มา 6 เดือน ยังไม่พัง" ไม่ได้ เพราะเขาไม่ได้ใช้ — <b>อย่าทิ้งข้อได้เปรียบเดียวที่คุณมีไปกับข้อความสำเร็จรูป</b></p>
+    </div>
+  </div>
+
+</div>
+</section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <p><b>CapCut × Shopee Video — คู่มือรวม 7 แท็บ</b> · ข้อมูล ณ ก.ค. 2026</p>
+    <p><b>CapCut × Shopee Video — คู่มือรวม 8 แท็บ</b> · ข้อมูล ณ ก.ค. 2026</p>
     <p>รวมจาก <code>ChatGPT.html</code> · <code>gemini-code-1784687864241.html</code> · <code>shopee-video-capcut-playbook.html</code> — เนื้อหาต้นฉบับคงไว้ตามเดิม ยกเว้นตาราง Free/Pro ของ Gemini ที่ต้นฉบับใช้แท็กผิดจนตารางแตก</p>
     <p>CapCut และ Shopee เปลี่ยนฟีเจอร์บ่อยและต่างกันตามภูมิภาค — ควรเช็กในแอปอีกครั้งก่อนตัดสินใจจ่ายเงิน</p>
   </div>
