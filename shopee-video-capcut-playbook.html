@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คู่มือ Shopee Video + CapCut — สรุป</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16181d;
+    --ink-soft:#4a4e57;
+    --paper:#f4f5f7;
+    --card:#ffffff;
+    --plum:#211a44;
+    --plum-2:#2e2560;
+    --coral:#ff5a2c;
+    --coral-deep:#e8410f;
+    --teal:#0f8a79;
+    --amber:#ffb020;
+    --line:rgba(20,22,28,.10);
+    --line-soft:rgba(20,22,28,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"IBM Plex Sans Thai",system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+  }
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+
+  /* timecode / label motif — the structural signature */
+  .tc{
+    font-family:"IBM Plex Mono",monospace;
+    font-weight:600;
+    letter-spacing:.04em;
+    font-size:.72rem;
+    text-transform:uppercase;
+  }
+
+  /* HERO */
+  .hero{
+    background:
+      radial-gradient(120% 130% at 88% -10%, rgba(255,90,44,.28), transparent 55%),
+      linear-gradient(160deg,var(--plum) 0%, var(--plum-2) 100%);
+    color:#fff;
+    padding:64px 0 72px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:100% 34px;
+    opacity:.5;pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+  .hero .eyebrow{color:var(--amber);margin-bottom:18px}
+  .hero h1{
+    font-family:"Bai Jamjuree",sans-serif;
+    font-weight:700;font-size:clamp(2.1rem,5.2vw,3.4rem);
+    line-height:1.06;letter-spacing:-.01em;
+  }
+  .hero h1 span{color:var(--coral)}
+  .hero p{margin-top:20px;max-width:44ch;color:rgba(255,255,255,.82);font-size:1.02rem}
+  .hero .meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+  .chip{
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);
+    padding:6px 12px;border-radius:100px;font-size:.8rem;color:#fff;
+  }
+
+  /* vertical clip mock */
+  .clip{
+    width:132px;aspect-ratio:9/16;border-radius:18px;flex:none;
+    background:linear-gradient(180deg,#3a2f6e,#191338);
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 24px 60px rgba(0,0,0,.4);
+    position:relative;padding:12px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .clip .tc{color:var(--coral);font-size:.62rem}
+  .clip .hooktag{background:var(--coral);color:#fff;font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:6px;align-self:flex-start;font-family:"Bai Jamjuree",sans-serif}
+  .clip .play{
+    width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);
+    align-self:center;display:grid;place-items:center;
+  }
+  .clip .play::after{content:"";border-left:12px solid var(--plum);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+  .clip .cta{background:var(--amber);color:var(--ink);font-weight:700;text-align:center;font-size:.6rem;padding:5px;border-radius:7px;font-family:"Bai Jamjuree",sans-serif}
+
+  /* SECTION */
+  section{padding:56px 0;border-bottom:1px solid var(--line-soft)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:30px}
+  .sec-head .num{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--coral);font-size:.9rem}
+  .sec-head h2{font-family:"Bai Jamjuree",sans-serif;font-weight:700;font-size:1.55rem;letter-spacing:-.01em;line-height:1.15}
+  .lead{color:var(--ink-soft);max-width:64ch;margin-bottom:26px}
+
+  /* timeline for the video structure */
+  .timeline{display:flex;flex-direction:column;gap:2px;margin:6px 0 8px}
+  .step{
+    display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:start;
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--coral);
+    padding:14px 18px;border-radius:0 12px 12px 0;
+  }
+  .step + .step{border-top:none}
+  .step .tc{color:var(--coral-deep);padding-top:3px}
+  .step b{font-family:"Bai Jamjuree",sans-serif;font-weight:600}
+  .step small{display:block;color:var(--ink-soft);font-size:.92rem;margin-top:2px}
+
+  /* generic card grid */
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+  }
+  .card h3{font-family:"Bai Jamjuree",sans-serif;font-weight:600;font-size:1.06rem;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+  .card p{color:var(--ink-soft);font-size:.95rem}
+  .tag{font-size:.68rem;font-weight:600;padding:3px 9px;border-radius:100px;font-family:"IBM Plex Mono",monospace;letter-spacing:.02em}
+  .tag.free{background:rgba(15,138,121,.12);color:var(--teal)}
+  .tag.cond{background:rgba(255,176,32,.16);color:#a56a00}
+
+  ul.clean{list-style:none;display:flex;flex-direction:column;gap:10px}
+  ul.clean li{position:relative;padding-left:26px;color:var(--ink-soft)}
+  ul.clean li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--coral);transform:rotate(45deg)}
+  ul.clean li b{color:var(--ink);font-weight:600}
+
+  /* verdict split */
+  .verdict{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .verdict .pick{border-top:3px solid var(--coral)}
+  .verdict .alt{border-top:3px solid var(--teal)}
+  .verdict .badge{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .pick .badge{color:var(--coral-deep)}
+  .alt .badge{color:var(--teal)}
+
+  /* myth strip */
+  .myth{background:#fff5f1;border:1px solid rgba(232,65,15,.22);border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start}
+  .myth .x{font-family:"Bai Jamjuree",sans-serif;font-weight:700;color:var(--coral-deep);flex:none;font-size:1.1rem}
+  .myth b{color:var(--ink)}
+
+  /* recommend row */
+  .rec{background:linear-gradient(135deg,var(--plum),var(--plum-2));color:#fff;border-radius:16px;padding:24px 26px;margin-top:22px}
+  .rec h3{font-family:"Bai Jamjuree",sans-serif;font-weight:600;color:var(--amber);margin-bottom:14px;font-size:1.05rem}
+  .rec ul{list-style:none;display:grid;gap:11px}
+  .rec li{padding-left:24px;position:relative;color:rgba(255,255,255,.9);font-size:.96rem}
+  .rec li::before{content:"▸";position:absolute;left:2px;color:var(--coral)}
+  .rec li b{color:#fff}
+
+  /* caution */
+  .caution .card{border-left:3px solid var(--amber)}
+  .verify{font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:600;color:#a56a00;background:rgba(255,176,32,.16);padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+
+  footer{background:var(--ink);color:rgba(255,255,255,.62);padding:34px 0;font-size:.84rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+  footer b{color:#fff;font-family:"Bai Jamjuree",sans-serif}
+
+  @media(max-width:720px){
+    .hero .wrap{grid-template-columns:1fr}
+    .clip{display:none}
+    .g2,.g3,.verdict{grid-template-columns:1fr}
+    .step{grid-template-columns:80px 1fr;gap:12px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="tc eyebrow">Playbook · อัปเดต ก.ค. 2026</div>
+      <h1>ปั้น <span>Shopee&nbsp;Video</span><br>ให้ขายได้ ด้วย CapCut</h1>
+      <p>สรุปครบทั้งเทคนิคทำคลิป การเลือกตัวตัด และชุดเครื่องมือ AI ของ CapCut สำหรับสายขายของออนไลน์</p>
+      <div class="meta">
+        <span class="chip">คลิปสั้น 9:16</span>
+        <span class="chip">CapCut ตัวฟรีพอ</span>
+        <span class="chip">ลงสม่ำเสมอ</span>
+      </div>
+    </div>
+    <div class="clip" aria-hidden="true">
+      <div>
+        <div class="tc">0:00–0:03</div>
+        <div class="hooktag" style="margin-top:6px">HOOK</div>
+      </div>
+      <div class="play"></div>
+      <div class="cta">กดตะกร้า 🛒</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="video">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>ปั้นคลิป Shopee Video ให้ปัง</h2></div>
+    <p class="lead">พฤติกรรมคนช้อปเปลี่ยนจากดูไลฟ์ยาว ๆ มาเป็นปัดดูคลิปสั้น หัวใจอยู่ที่ 3 วินาทีแรก + ความสม่ำเสมอ</p>
+
+    <div class="timeline">
+      <div class="step"><span class="tc">0:00–0:03</span><div><b>Hook</b><small>ตัดช่วงเกริ่นทิ้ง โชว์ราคา / ปัญหาที่คนดูมี / ผลลัพธ์ก่อน-หลัง ทันที</small></div></div>
+      <div class="step"><span class="tc">Next</span><div><b>บอกว่าสินค้าแก้อะไร</b><small>สรุปให้ชัดใน 1 ประโยค ว่าคลิปนี้ช่วยเรื่องอะไร</small></div></div>
+      <div class="step"><span class="tc">Body</span><div><b>โชว์การใช้งานจริง</b><small>คนเชื่อ "ของจริง" มากกว่าคำพูด โชว์ผลลัพธ์ให้เห็น</small></div></div>
+      <div class="step"><span class="tc">End</span><div><b>ปิดด้วย CTA</b><small>"กดตะกร้าเหลือง / กดโค้ดในคลิป" — ความยาวรวม 15–30 วิ กำลังดี</small></div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:24px">
+      <div class="card">
+        <h3>⚙️ สเปก &amp; ข้อจำกัด (จากหน้าทางการ Shopee)</h3>
+        <ul class="clean" style="margin-top:12px">
+          <li>ใส่สินค้าได้สูงสุด <b>6 ชิ้น/คลิป</b> + ใส่โค้ดส่วนลดร้าน/สินค้าในคลิปได้</li>
+          <li>ปักหมุดวิดีโอไว้บนโปรไฟล์ได้ <b>สูงสุด 3 คลิป</b></li>
+          <li>เปิด <b>"เพิ่มคุณภาพ"</b> ตอนอัปโหลดเสมอ — AI ของ Shopee ดันคลิปที่คมชัด</li>
+          <li>อัดแนวตั้ง <b>9:16</b> เต็มจอเหมือน TikTok/Reels</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📤 ตอนลง &amp; อัลกอริทึม</h3>
+        <ul class="clean" style="margin-top:12px">
+          <li><b>ผูกสินค้าให้ถูกตัว</b> เพื่อให้มีปุ่มกดเข้าหน้าสินค้า</li>
+          <li>ตั้งชื่อ + คำอธิบายชัดว่าคลิปแก้ปัญหาอะไร</li>
+          <li>แฮชแท็ก <b>เทรนด์ + เฉพาะกลุ่ม</b> และใส่คูปองในคลิปกระตุ้นซื้อ</li>
+          <li><b>ตอบคอมเมนต์ไว</b> + ลงวันละ 1 คลิป 30 วัน ดีกว่าลงรัวแล้วหาย</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="myth" style="margin-top:16px">
+      <span class="x">เลี่ยง</span>
+      <div>เกริ่นยาว · คลิปเบลอ/ไม่เปิดเพิ่มคุณภาพ · ลงไม่สม่ำเสมอ · ไม่ผูกสินค้า/ไม่มี CTA</div>
+    </div>
+  </div>
+</section>
+
+<section id="editor">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>ตัดคลิปด้วยอะไรดี</h2></div>
+    <div class="verdict">
+      <div class="card pick">
+        <span class="badge">แนะนำสำหรับ Shopee</span>
+        <h3 style="margin-top:8px">CapCut</h3>
+        <p>เกิดมาเพื่อคอนเทนต์สั้น — มี <b>auto-cut</b>, <b>auto-captions ไทย</b>, template และ export 1080p (พอสำหรับ Shopee) <b>ตัวฟรีก็พอ</b> ไม่ต้องซื้อ Pro</p>
+      </div>
+      <div class="card alt">
+        <span class="badge">ทางเลือก</span>
+        <h3 style="margin-top:8px">DaVinci Resolve</h3>
+        <p>ตัวฟรีเก่งจริง ไม่มีลายน้ำ เหมาะถ้าอยาก <b>คุมสีจริงจัง</b> หรือจ่ายครั้งเดียวจบ (Studio $295) แต่ <b>overkill</b> + learning curve ชันสำหรับคลิปขายของ</p>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="myth">
+        <span class="x">แก้ความเข้าใจผิด</span>
+        <div><b>CapCut ตัวฟรีมีบน PC ด้วย</b> ไม่ได้บังคับ Pro — โหลด desktop app ฟรีจาก capcut.com ใช้ multi-track/captions/1080p ได้เหมือนมือถือ</div>
+      </div>
+      <div class="myth">
+        <span class="x">template</span>
+        <div><b>ตัวฟรีมี template เยอะ</b> ลายน้ำขึ้น <u>เฉพาะ</u>ตัวที่มีไอคอนมงกุฎ 👑 — export ปกติไม่มีลายน้ำ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>ชุดเครื่องมือ Marketing / Commerce ของ CapCut</h2></div>
+    <p class="lead">ส่วนหนึ่งคือ CapCut for Business ที่ ByteDance ทำมาเจาะร้านค้า/advertiser โดยเฉพาะ</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>🎬 Smart Ads <span class="tag free">ฟรี</span></h3>
+        <p>ใส่สินค้า/รูป แล้ว AI ร่างเป็นคลิปโฆษณาให้ เรามาปรับต่อ — ประหยัดเวลาช่วงสร้างคลิปมาก (ฝั่ง Business มีตัวแปลง URL หน้าสินค้าเป็นวิดีโอ + generate สคริปต์ด้วย)</p>
+      </div>
+      <div class="card">
+        <h3>🖼️ AI Product Photo</h3>
+        <p>อัปรูปสินค้า 1 รูป AI ตัดพื้นหลัง จัดแสงใหม่ ใส่ฉาก lifestyle หลายแบบ export ตามขนาดแพลตฟอร์ม มี batch สลับสินค้าบนพื้นหลังเดิมทีเดียว</p>
+      </div>
+      <div class="card">
+        <h3>📰 AI Poster</h3>
+        <p>อัปรูปสินค้า ระบบจัด layout หลายสไตล์ + typeset อัตโนมัติ (ใช้โมเดล Seedream 5.0 อันดับ 1 บน text-to-image leaderboard) เหมาะทำแบนเนอร์โปรฯ/บันเดิล</p>
+      </div>
+      <div class="card">
+        <h3>👗 AI Fashion Model <span class="tag cond">เฉพาะแฟชั่น</span></h3>
+        <p>อัปรูปเสื้อผ้า + โมเดล ใส่ prompt แล้วสร้างภาพนางแบบใส่สินค้าได้ 4 แบบ/prompt ตัดค่าจ้างแบบ+สตูดิโอ — คุ้มเฉพาะถ้าขายเสื้อผ้า</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <h3>ควรใช้ตัวไหน (ขึ้นกับว่าขายอะไร)</h3>
+      <ul>
+        <li><b>Smart Ads</b> — ตัวหลักสำหรับทำคลิปวันละตัว ร่างเร็วแล้วปรับ hook + ใส่ซับเอง</li>
+        <li><b>AI Product Photo</b> — ทำรูปหน้าสินค้า/thumbnail ให้คลีนดูโปร</li>
+        <li><b>AI Poster</b> — ช่วงมีโปรฯ/แคมเปญ ทำแบนเนอร์หรือ overlay</li>
+        <li><b>AI Fashion Model</b> — เฉพาะสายเสื้อผ้า/แฟชั่น อย่างอื่นข้ามได้</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-top:16px;border-left:3px solid var(--teal)">
+      <h3>➕ ตัวเสริมที่คุ้มใช้กับ Shopee</h3>
+      <p style="margin-top:6px">Auto-captions (ซับไทย) · AI voice / text-to-speech (พากย์แทนอัดเอง) · Long-to-short (ตัดไลฟ์ย้อนหลังเป็นคลิปสั้น) · URL-to-video · Image upscaler (รูปเก่าเบลอ→คม) · AI avatar/presenter (ไม่อยากออกกล้อง)</p>
+    </div>
+  </div>
+</section>
+
+<section id="caution" class="caution">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04</span><h2>ข้อควรระวัง ก่อนใช้จริง</h2></div>
+    <div class="grid g2">
+      <div class="card"><p>🌏 ฟีเจอร์ AI <b>ขึ้นกับภูมิภาค</b> — บางตัวอาจไม่โผล่ในแอปไทย ต้องเช็กในแอปจริง และหลายตัวเข้าถึงง่ายกว่าบน mobile/web มากกว่า desktop</p></div>
+      <div class="card"><p>💳 ตัวฟรีมี <b>โควตา/เครดิต AI รายเดือน</b>จำกัด ใช้หนักต้องขึ้น Pro หรือซื้อเครดิตเพิ่ม</p></div>
+      <div class="card">
+        <p>🖼️ <b>รูป AI ต้องไม่บิดเบือนสินค้าจริง</b> — บน Shopee ถ้ารูป listing ไม่ตรงของจริงเสี่ยงผิดกฎ/ลูกค้าเข้าใจผิด ใช้ AI แต่งฉาก/แสงได้ แต่ตัวสินค้าต้องตรง</p>
+        <p style="margin-top:8px"><span class="verify">ยืนยันไม่ได้</span> นโยบายรูป AI ของ Shopee ไทย — เช็กกับ Shopee โดยตรง</p>
+      </div>
+      <div class="card">
+        <p>🎵 <b>เพลง built-in มีข้อจำกัดเชิงพาณิชย์</b> — คลิปขายของควรใช้เพลงที่เคลียร์ลิขสิทธิ์แล้ว</p>
+        <p style="margin-top:8px"><span class="verify">เช็กในแอป</span> ราคา: consensus คือ Standard ~$10 / Pro $19.99 ต่อเดือน (บางแหล่งต่างกัน)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>สรุป Shopee Video + CapCut</b> · ข้อมูล ณ ก.ค. 2026</span>
+    <span>บางส่วนยืนยันไม่ได้ 100% — CapCut/Shopee เปลี่ยนฟีเจอร์บ่อยและต่างตามภูมิภาค เช็กในแอปอีกที</span>
+  </div>
+</footer>
+
+</body>
+</html>
