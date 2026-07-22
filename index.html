@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CapCut × Shopee Video — รวม 4 มุมมอง</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f3f7;
+  --card:#ffffff;
+  --ink:#1a1d24;
+  --ink-soft:#585e6b;
+  --ink-faint:#8b919d;
+  --line:rgba(20,22,28,.11);
+  --line-soft:rgba(20,22,28,.06);
+  --shadow:0 1px 2px rgba(16,20,30,.04), 0 8px 24px rgba(16,20,30,.06);
+
+  /* accent ประจำแต่ละมุมมอง */
+  --sum:#6d4aff;  --sum-bg:#f2eeff;
+  --gpt:#0e9f6e;  --gpt-bg:#e7f7f0;
+  --gem:#3b6ef5;  --gem-bg:#eaf0ff;
+  --cla:#ee5a2c;  --cla-bg:#fdeee7;
+
+  --ok:#0e9f6e;   --warn:#d98200;  --bad:#d64545;
+  --accent:var(--sum);
+  --accent-bg:var(--sum-bg);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#101319; --card:#171b23; --ink:#e9ecf2; --ink-soft:#a2a9b8; --ink-faint:#6f7686;
+    --line:rgba(255,255,255,.12); --line-soft:rgba(255,255,255,.06);
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+    --sum:#a48cff; --sum-bg:#241d3d;
+    --gpt:#3ecf95; --gpt-bg:#122b23;
+    --gem:#7ea1ff; --gem-bg:#182238;
+    --cla:#ff8a5c; --cla-bg:#33201a;
+    --ok:#3ecf95; --warn:#f0ad3d; --bad:#ff6b6b;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"IBM Plex Sans Thai","Leelawadee UI",Tahoma,system-ui,sans-serif;
+  background:var(--bg); color:var(--ink);
+  line-height:1.72; font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:60px;
+}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+header{padding:38px 0 22px;background:var(--card);border-bottom:1px solid var(--line)}
+.eyebrow{
+  display:inline-block;font-size:12px;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border:1px solid var(--line);border-radius:99px;padding:3px 12px;margin-bottom:14px;
+}
+h1{font-size:clamp(26px,4.4vw,38px);line-height:1.25;font-weight:700;letter-spacing:-.01em}
+header p{color:var(--ink-soft);margin-top:10px;max-width:66ch}
+
+/* ---------- tabs ---------- */
+.tabbar{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb, var(--card) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;display:flex;align-items:center;gap:8px;
+  font:inherit;font-weight:600;font-size:14.5px;
+  color:var(--ink-soft);background:transparent;
+  border:1px solid var(--line);border-radius:99px;
+  padding:8px 16px;cursor:pointer;white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.tab:hover{background:var(--line-soft);color:var(--ink)}
+.tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor;opacity:.55}
+.tab[data-k="sum"]{--c:var(--sum)} .tab[data-k="gpt"]{--c:var(--gpt)}
+.tab[data-k="gem"]{--c:var(--gem)} .tab[data-k="cla"]{--c:var(--cla)}
+.tab .dot{background:var(--c);opacity:1}
+.tab[aria-selected="true"]{
+  color:#fff;background:var(--c);border-color:var(--c);
+}
+.tab[aria-selected="true"] .dot{background:#fff}
+
+/* ---------- view ---------- */
+.view{display:none;padding-top:30px}
+.view.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+.view[data-k="sum"]{--accent:var(--sum);--accent-bg:var(--sum-bg)}
+.view[data-k="gpt"]{--accent:var(--gpt);--accent-bg:var(--gpt-bg)}
+.view[data-k="gem"]{--accent:var(--gem);--accent-bg:var(--gem-bg)}
+.view[data-k="cla"]{--accent:var(--cla);--accent-bg:var(--cla-bg)}
+
+.source{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  font-size:13.5px;color:var(--ink-soft);
+  background:var(--accent-bg);border-radius:12px;padding:11px 15px;margin-bottom:26px;
+}
+.source b{color:var(--accent)}
+
+.sec{margin-bottom:34px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.sec-head .num{
+  font-size:12px;font-weight:700;letter-spacing:.08em;color:#fff;
+  background:var(--accent);border-radius:6px;padding:3px 8px;flex:0 0 auto;
+}
+h2{font-size:clamp(19px,2.6vw,23px);font-weight:700;letter-spacing:-.005em}
+h3{font-size:16.5px;font-weight:600;margin-bottom:6px}
+.lead{color:var(--ink-soft);margin-bottom:16px;max-width:74ch}
+
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 20px;box-shadow:var(--shadow);
+}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+ul,ol{padding-left:20px;margin-top:8px}
+li{margin-bottom:7px}
+ul.clean{list-style:none;padding-left:0}
+ul.clean li{position:relative;padding-left:22px}
+ul.clean li::before{content:"";position:absolute;left:5px;top:12px;width:6px;height:6px;border-radius:99px;background:var(--accent)}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{
+  background:var(--accent);color:#fff;font-weight:600;font-size:13.5px;
+  letter-spacing:.01em;border-bottom:none;white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--line-soft)}
+td b,th b{font-weight:600}
+.mid{text-align:center;white-space:nowrap}
+.star{color:#f5a623;font-weight:600;letter-spacing:1px;white-space:nowrap}
+
+/* ---------- callouts ---------- */
+.note{border-left:3px solid var(--accent);background:var(--accent-bg);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+.warn{border-left:3px solid var(--warn);background:color-mix(in srgb,var(--warn) 10%,transparent);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+.good{border-left:3px solid var(--ok);background:color-mix(in srgb,var(--ok) 10%,transparent);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+.note h3,.warn h3,.good h3{margin-bottom:4px}
+
+.tag{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;vertical-align:middle}
+.t-must{background:var(--ok);color:#fff}
+.t-should{background:#3b6ef5;color:#fff}
+.t-maybe{background:var(--ink-faint);color:#fff}
+.t-niche{background:var(--warn);color:#fff}
+.t-free{background:var(--ok);color:#fff}
+
+.yes{color:var(--ok);font-weight:600}
+.no{color:var(--ink-faint)}
+.hmm{color:var(--warn);font-weight:600}
+
+.who{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:99px;border:1px solid var(--line)}
+.w-gpt{color:var(--gpt);background:var(--gpt-bg)}
+.w-gem{color:var(--gem);background:var(--gem-bg)}
+.w-cla{color:var(--cla);background:var(--cla-bg)}
+
+/* ---------- pipeline ---------- */
+.pipe{display:grid;gap:10px;counter-reset:st}
+.pstep{
+  display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+}
+.pstep::before{
+  counter-increment:st;content:counter(st);
+  display:grid;place-items:center;width:34px;height:34px;border-radius:99px;
+  background:var(--accent);color:#fff;font-weight:700;font-size:14px;
+}
+.pstep small{display:block;color:var(--ink-soft);font-size:13.5px;line-height:1.6}
+.pstep b{font-size:15.5px}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.chip{font-size:12.5px;font-weight:500;color:var(--ink-soft);background:var(--line-soft);border:1px solid var(--line);border-radius:99px;padding:3px 11px}
+
+pre.flow{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font-size:13.5px;line-height:2;white-space:pre-wrap;color:var(--ink-soft);
+}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;font-size:13px;color:var(--ink-faint)}
+footer p{margin-bottom:5px}
+
+@media print{
+  .tabbar{display:none}
+  .view{display:block !important;page-break-before:always;border-top:2px solid #000;margin-top:20px}
+  body{background:#fff}
+}
+@media (max-width:600px){
+  body{font-size:15.5px}
+  .wrap{padding:0 15px}
+  .pstep{grid-template-columns:28px 1fr;gap:11px}
+  .pstep::before{width:28px;height:28px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Shopee Video Playbook · ก.ค. 2026</span>
+    <h1>CapCut × Shopee Video<br>รวมความเห็นจาก 3 AI + สรุปรวม</h1>
+    <p>เอกสารเดียวกัน 4 มุมมอง — กดสลับแท็บเพื่อดูว่าแต่ละเจ้าตอบว่าอะไร แล้วดูแท็บ <b>สรุปรวม</b> ว่าตรงกันตรงไหน ต่างกันตรงไหน และควรทำอะไรจริง ๆ</p>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab" data-k="sum" role="tab" aria-selected="true"><span class="dot"></span>⭐ สรุปรวม</button>
+      <button class="tab" data-k="gpt" role="tab" aria-selected="false"><span class="dot"></span>ChatGPT</button>
+      <button class="tab" data-k="gem" role="tab" aria-selected="false"><span class="dot"></span>Gemini</button>
+      <button class="tab" data-k="cla" role="tab" aria-selected="false"><span class="dot"></span>Claude</button>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ══════════════════ 1. สรุปรวม ══════════════════ -->
+<section class="view on" data-k="sum" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>มุมมองที่ 4 — สังเคราะห์ใหม่</b>
+    <span>อ่านทั้ง 3 ฉบับแล้วหาจุดที่ตรงกัน จุดที่มีคนเดียวพูด และจุดที่ขัดกันเอง</span>
+  </div>
+
+  <div class="sec">
+    <div class="note">
+      <h3>อ่าน 30 วินาทีจบ</h3>
+      <ul class="clean">
+        <li><b>ใช้ CapCut ตัวฟรีก็พอ</b> — ไม่ต้องซื้อ Pro ตราบใดที่ไม่แตะเอฟเฟกต์/เทมเพลตที่มีไอคอนมงกุฎ 👑 และมีเวอร์ชัน PC ให้โหลดฟรีจริง</li>
+        <li><b>4 เครื่องมือที่ต้องใช้ทุกคลิป</b> — AI Auto Cut · Auto Caption ไทย · Smart Ads · AI Product Photo (ทั้ง 3 เจ้าให้คะแนนสูงสุดตรงกัน)</li>
+        <li><b>3 วินาทีแรกคือทุกอย่าง</b> — ตัดเกริ่นทิ้ง โชว์ราคา/ปัญหา/ผลลัพธ์ทันที ความยาวรวม 15–30 วิ แนวตั้ง 9:16</li>
+        <li><b>ให้ AI ลดเวลาตัดต่อ อย่าให้ AI ทำคลิปทั้งคลิป</b> — ถ่ายของจริงเสมอ AI ใช้เร่งงานหลังบ้าน</li>
+        <li><b>ลงสม่ำเสมอชนะลงรัว</b> — วันละ 1 คลิปต่อเนื่อง 30 วัน ดีกว่าลง 10 คลิปแล้วหายไป</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">01</span><h2>ทั้ง 3 เจ้าเห็นตรงกันเรื่องอะไร</h2></div>
+    <p class="lead">ถ้า 2–3 เจ้าพูดตรงกันโดยไม่ได้คุยกัน แปลว่าน่าเชื่อถือพอจะลงมือได้เลย</p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>ประเด็น</th><th class="mid">ChatGPT</th><th class="mid">Gemini</th><th class="mid">Claude</th><th>สรุป</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><b>Smart Ads = ตัวหลักทำคลิป</b></td><td class="mid yes">★★★★★</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>ฉันทามติเต็ม — ใช้ร่างคลิปแล้วมาปรับเอง</td></tr>
+          <tr><td><b>Auto Caption ซับไทย</b></td><td class="mid yes">★★★★★</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>ฉันทามติเต็ม — คนดูส่วนใหญ่ปิดเสียง</td></tr>
+          <tr><td><b>AI Auto Cut (ตัดช่วงเงียบ)</b></td><td class="mid yes">★★★★★</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>ฉันทามติเต็ม — ประหยัดเวลาที่สุด</td></tr>
+          <tr><td><b>AI Product Photo ทำรูปปก</b></td><td class="mid yes">★★★★★</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>ฉันทามติเต็ม</td></tr>
+          <tr><td><b>AI Fashion Model = เฉพาะร้านแฟชั่น</b></td><td class="mid hmm">★★★☆☆</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>ตรงกัน 100% — ไม่ได้ขายเสื้อผ้าให้ข้าม</td></tr>
+          <tr><td><b>Hook 3 วินาทีแรก</b></td><td class="mid no">ไม่พูดถึง</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>2/3 — และเป็นข้อที่ทั้งคู่เน้นหนักสุด</td></tr>
+          <tr><td><b>แนวตั้ง 9:16 ยาว 15–30 วิ</b></td><td class="mid no">ไม่พูดถึง</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>2/3 — ตัวเลขตรงกันเป๊ะ</td></tr>
+          <tr><td><b>CTA ชัดเจน (กดตะกร้า/โค้ด)</b></td><td class="mid no">ไม่พูดถึง</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>2/3</td></tr>
+          <tr><td><b>ลงคลิปสม่ำเสมอทุกวัน</b></td><td class="mid no">ไม่พูดถึง</td><td class="mid yes">1–3 คลิป/วัน</td><td class="mid yes">1 คลิป/วัน</td><td>2/3 — ดู "จุดที่ขัดกัน" ข้อ 1</td></tr>
+          <tr><td><b>CapCut ตัวฟรีพอ ไม่ต้อง Pro</b></td><td class="mid no">ไม่พูดถึง</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>2/3 — ข้อนี้ประหยัดเงินได้จริง</td></tr>
+          <tr><td><b>CapCut ดีกว่า DaVinci สำหรับงานนี้</b></td><td class="mid no">ไม่พูดถึง</td><td class="mid yes">✓</td><td class="mid yes">✓</td><td>2/3 — DaVinci overkill สำหรับคลิปขายของ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">02</span><h2>ตารางเครื่องมือรวม — ควรใช้ตัวไหนบ้าง</h2></div>
+    <p class="lead">รวมทุกเครื่องมือที่ทั้ง 3 เจ้าพูดถึง จัดกลุ่มตามว่าใช้บ่อยแค่ไหน</p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>เครื่องมือ</th><th>ใช้ทำอะไร</th><th class="mid">ใครพูดถึง</th><th class="mid">ระดับ</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><b>AI Auto Cut</b></td><td>ตัดช่วงเงียบ ตัดช็อตเสีย จัดจังหวะอัตโนมัติ</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-must">ต้องใช้</span></td></tr>
+          <tr><td><b>Auto Caption</b></td><td>สร้างซับไทยอัตโนมัติ</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-must">ต้องใช้</span></td></tr>
+          <tr><td><b>Smart Ads</b></td><td>AI ร่างคลิปโฆษณาจากรูป/วิดีโอสินค้า</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-must">ต้องใช้</span></td></tr>
+          <tr><td><b>AI Product Photo</b></td><td>ตัดพื้นหลัง จัดแสงใหม่ ใส่ฉากสตูดิโอ/lifestyle</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-must">ต้องใช้</span></td></tr>
+          <tr><td><b>AI Enhance / Upscaler</b></td><td>เพิ่มความคม ลด noise รูปเก่าเบลอ→คม</td><td class="mid">GPT, Claude</td><td class="mid"><span class="tag t-should">ควรใช้</span></td></tr>
+          <tr><td><b>Script Generator</b></td><td>AI เขียนสคริปต์ขายให้จากจุดขายที่พิมพ์เข้าไป</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-should">ควรใช้</span></td></tr>
+          <tr><td><b>AI Voice / TTS</b></td><td>พากย์แทนอัดเสียงเอง</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-should">ควรใช้</span></td></tr>
+          <tr><td><b>Remove Background</b></td><td>ลบพื้นหลังสินค้า (มักรวมอยู่ใน Product Photo แล้ว)</td><td class="mid">GPT</td><td class="mid"><span class="tag t-should">ควรใช้</span></td></tr>
+          <tr><td><b>AI Poster</b></td><td>แบนเนอร์โปรโมชัน/ลดราคา สำหรับ FB, LINE, Shopee</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-maybe">ตามโอกาส</span></td></tr>
+          <tr><td><b>URL to Video</b></td><td>วางลิงก์สินค้า Shopee → ได้คลิปพร้อมขาย</td><td class="mid">Gemini, Claude</td><td class="mid"><span class="tag t-maybe">ตามโอกาส</span></td></tr>
+          <tr><td><b>AI Avatar / Presenter</b></td><td>ตัวละคร AI พูดแทน ไม่ต้องออกกล้อง</td><td class="mid">Gemini, Claude</td><td class="mid"><span class="tag t-maybe">ตามโอกาส</span></td></tr>
+          <tr><td><b>Long-to-short</b></td><td>ตัดไลฟ์ย้อนหลังยาว ๆ เป็นคลิปสั้นหลายตัว</td><td class="mid">Claude</td><td class="mid"><span class="tag t-maybe">ตามโอกาส</span></td></tr>
+          <tr><td><b>Motion Tracking</b></td><td>ให้ข้อความ/สติกเกอร์วิ่งตามสินค้า</td><td class="mid">GPT</td><td class="mid"><span class="tag t-maybe">ตามโอกาส</span></td></tr>
+          <tr><td><b>Text to Video</b></td><td>พิมพ์ข้อความแล้ว AI สร้างคลิปทั้งตัว</td><td class="mid">GPT, Gemini</td><td class="mid"><span class="tag t-maybe">ตามโอกาส</span></td></tr>
+          <tr><td><b>AI Relight</b></td><td>ปรับแสงให้เหมือนถ่ายในสตูดิโอ</td><td class="mid">GPT</td><td class="mid"><span class="tag t-maybe">ตามโอกาส</span></td></tr>
+          <tr><td><b>AI Fashion Model</b></td><td>สร้างนายแบบ/นางแบบ AI ใส่เสื้อผ้าของเรา</td><td class="mid">ทั้ง 3</td><td class="mid"><span class="tag t-niche">เฉพาะแฟชั่น</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">03</span><h2>จุดเด่นที่มีแค่เจ้าเดียว</h2></div>
+    <p class="lead">ข้อมูลที่จะหายไปถ้าอ่านแค่ฉบับใดฉบับหนึ่ง — นี่คือเหตุผลที่ควรอ่านครบทั้ง 3</p>
+    <div class="grid g3">
+      <div class="card" style="border-top:3px solid var(--gpt)">
+        <h3><span class="who w-gpt">ChatGPT</span></h3>
+        <ul class="clean" style="margin-top:10px">
+          <li><b>จัดอันดับความคุ้มเป็น tier</b> 🥇🥈🥉 — ตัดสินใจง่ายที่สุดว่าจะเริ่มจากตัวไหน</li>
+          <li><b>แยก "ใช้ประจำ / ใช้บางครั้ง / ใช้เฉพาะธุรกิจ"</b> ชัดเจนกว่าเจ้าอื่น</li>
+          <li>เครื่องมือที่เจ้าอื่นไม่พูดถึง: <b>Motion Tracking</b>, <b>AI Relight</b>, <b>Remove Background</b> แยกตัว</li>
+          <li>Workflow 7 ขั้นเป็นแผนภาพ ทำตามได้ทันที</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:3px solid var(--gem)">
+        <h3><span class="who w-gem">Gemini</span></h3>
+        <ul class="clean" style="margin-top:10px">
+          <li><b>ตารางเทียบ CapCut ฟรี vs Pro</b> — เจ้าเดียวที่ลงรายละเอียดโควตา/ความละเอียด export</li>
+          <li><b>"คูปองส่วนลดเฉพาะ Shopee Video"</b> — กลไกกระตุ้นซื้อที่เจ้าอื่นไม่ได้เน้น</li>
+          <li><b>สไตล์ UGC</b> — ทำให้ดูเหมือนผู้ใช้จริงรีวิว ไม่ใช่โฆษณา</li>
+          <li>แนะนำ <b>Script to Video</b> และ <b>URL to Video</b> เป็นทางลัดทำคลิป</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:3px solid var(--cla)">
+        <h3><span class="who w-cla">Claude</span></h3>
+        <ul class="clean" style="margin-top:10px">
+          <li><b>สเปคจริงจากหน้าทางการ Shopee</b> — ใส่สินค้าได้ 6 ชิ้น/คลิป · ปักหมุดได้ 3 คลิป · ปุ่ม "เพิ่มคุณภาพ"</li>
+          <li><b>ข้อควรระวังด้านกฎ</b> — รูป AI ห้ามบิดเบือนสินค้าจริง · เพลง built-in มีข้อจำกัดเชิงพาณิชย์</li>
+          <li><b>เตือนเรื่องภูมิภาค + โควตาเครดิต AI</b> — บางฟีเจอร์อาจไม่มีในแอปไทย</li>
+          <li><b>กำกับว่าข้อไหนยืนยันไม่ได้</b> — เจ้าเดียวที่ระบุความไม่แน่ใจของตัวเอง</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">04</span><h2>จุดที่ขัดกัน / ต้องอ่านให้ระวัง</h2></div>
+    <div class="grid g2">
+      <div class="warn">
+        <h3>1. ความถี่ลงคลิป — 1–3 คลิป/วัน หรือ 1 คลิป/วัน?</h3>
+        <p>Gemini บอก <b>1–3 คลิป/วัน</b> · Claude บอก <b>1 คลิป/วัน ต่อเนื่อง 30 วัน ดีกว่าลงรัวแล้วหาย</b></p>
+        <p style="margin-top:8px"><b>ตัดสิน:</b> ไม่ขัดกันจริง แต่คนละโจทย์ — เริ่มต้นให้เอา <b>1 คลิป/วันแบบไม่ขาด</b> เป็นเป้าหลัก แล้วค่อยเพิ่มเป็น 2–3 เมื่อมีระบบผลิตแล้ว</p>
+      </div>
+      <div class="warn">
+        <h3>2. AI Poster ได้กี่ดาวกันแน่</h3>
+        <p>ChatGPT ให้ <b>★★★★☆</b> ในตารางเครื่องมือ แต่ในตารางสรุปความคุ้มกลับให้ <b>🥉 ★★★☆☆</b> — ขัดกันเองในไฟล์เดียว</p>
+        <p style="margin-top:8px"><b>ตัดสิน:</b> ใช้ ★★★☆☆ ตามอันดับความคุ้ม — AI Poster จำเป็นเฉพาะช่วงมีแคมเปญ ไม่ใช่งานประจำวัน</p>
+      </div>
+      <div class="warn">
+        <h3>3. ChatGPT ไม่พูดเรื่องฟรี vs Pro เลย</h3>
+        <p>ถ้าอ่านแค่ฉบับ ChatGPT อาจเข้าใจว่าต้องสมัคร Pro ถึงจะใช้ AI ได้ — ทั้ง Gemini และ Claude ยืนยันว่า <b>ตัวฟรีบน PC ใช้ได้ ไม่มีลายน้ำ</b></p>
+        <p style="margin-top:8px"><b>ตัดสิน:</b> เริ่มจากตัวฟรีก่อนเสมอ ค่อยอัป Pro เมื่อชนโควตา AI จริง ๆ</p>
+      </div>
+      <div class="warn">
+        <h3>4. ตัวเลขราคายังไม่นิ่ง</h3>
+        <p>Claude ระบุ Pro ~<b>$19.99/เดือน</b> (Standard ~$10) และ DaVinci Studio <b>$295</b> แต่กำกับเองว่า <b>บางแหล่งต่างกัน</b> · อีก 2 เจ้าไม่พูดเรื่องราคา</p>
+        <p style="margin-top:8px"><b>ตัดสิน:</b> อย่าอ้างอิงราคาจากเอกสารนี้ เช็กในแอปก่อนจ่ายทุกครั้ง</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">05</span><h2>แผนลงมือจริง — รวมทั้ง 3 เป็นสายพานเดียว</h2></div>
+    <p class="lead">เอา pre-production ของ Gemini + workflow ของ ChatGPT + สเปค Shopee ของ Claude มาต่อกัน</p>
+    <div class="pipe">
+      <div class="pstep"><div><b>วางสคริปต์ก่อนถ่าย</b><small>เขียน hook 3 วิแรกให้เสร็จก่อน (ราคา / ปัญหาที่คนดูมี / ผลลัพธ์ before-after) + สรุปใน 1 ประโยคว่าสินค้าแก้อะไร + ปิดท้ายด้วย CTA — ใช้ Script Generator ช่วยร่างได้</small></div></div>
+      <div class="pstep"><div><b>ถ่ายของจริง แนวตั้ง 9:16</b><small>แสงสว่างพอ โชว์การใช้งานจริง สไตล์ UGC เหมือนผู้ใช้รีวิว ไม่ใช่โฆษณา — AI มีไว้เร่งงานหลังบ้าน ไม่ใช่ทำคลิปแทนทั้งคลิป</small></div></div>
+      <div class="pstep"><div><b>ตัดใน CapCut ตัวฟรี</b><small>AI Auto Cut ตัดช่วงเงียบ → Auto Caption ซับไทย → AI Enhance เพิ่มความคม → ใส่เพลงติดเทรนด์ → คุมความยาวรวม 15–30 วิ</small></div></div>
+      <div class="pstep"><div><b>ทำรูปปก / thumbnail</b><small>AI Product Photo ตัดพื้นหลัง จัดแสงใหม่ ใส่ฉากสตูดิโอ — ตัวสินค้าต้องตรงกับของจริง แต่งได้แค่ฉากกับแสง</small></div></div>
+      <div class="pstep"><div><b>สเกลด้วย Smart Ads</b><small>ปั้นหลายเวอร์ชันจากคลิปเดิม เปลี่ยนแค่ hook แล้ว A/B ดูว่าตัวไหนคนดูจบ — ช่วงมีแคมเปญค่อยเสริม AI Poster</small></div></div>
+      <div class="pstep"><div><b>ลง Shopee ให้ครบเช็กลิสต์</b><small>เปิด "เพิ่มคุณภาพ" ตอนอัปโหลด · ผูกสินค้าให้ถูกตัว (สูงสุด 6 ชิ้น) · ใส่โค้ดส่วนลดเฉพาะ Shopee Video · ปักหมุดคลิปดีที่สุดไว้ 3 ตัว · ตั้งชื่อ+คำอธิบาย+แฮชแท็กเทรนด์และเฉพาะกลุ่ม</small></div></div>
+      <div class="pstep"><div><b>ตอบคอมเมนต์ไว แล้วทำซ้ำทุกวัน</b><small>วันละ 1 คลิปต่อเนื่อง 30 วัน คือเป้าที่สมจริงที่สุด — ความสม่ำเสมอสำคัญกว่าจำนวน</small></div></div>
+    </div>
+    <div class="chips">
+      <span class="chip">Hook 3 วิ</span><span class="chip">9:16</span><span class="chip">15–30 วินาที</span>
+      <span class="chip">ซับไทยเสมอ</span><span class="chip">CapCut ฟรี</span><span class="chip">6 สินค้า/คลิป</span>
+      <span class="chip">ปักหมุด 3</span><span class="chip">เปิด "เพิ่มคุณภาพ"</span><span class="chip">วันละ 1 คลิป</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">06</span><h2>ก่อนใช้จริง — 5 ข้อที่ต้องเช็กเอง</h2></div>
+    <div class="grid g2">
+      <div class="card"><p>🌏 <b>ฟีเจอร์ AI ขึ้นกับภูมิภาค</b> — บางตัวอาจไม่โผล่ในแอปไทย และหลายตัวเข้าถึงง่ายกว่าบน mobile/web มากกว่า desktop ต้องเปิดแอปจริงเช็ก</p></div>
+      <div class="card"><p>💳 <b>ตัวฟรีมีโควตาเครดิต AI รายเดือน</b> — ใช้หนักจะชนเพดาน ค่อยตัดสินใจอัป Pro ตอนนั้น อย่าจ่ายก่อน</p></div>
+      <div class="card"><p>🖼️ <b>รูป AI ต้องไม่บิดเบือนสินค้าจริง</b> — แต่งฉาก/แสงได้ แต่ตัวสินค้าต้องตรงของจริง ไม่งั้นเสี่ยงผิดกฎ Shopee และลูกค้าเข้าใจผิด <i>(นโยบายรูป AI ของ Shopee ไทยยังยืนยันไม่ได้ — เช็กกับ Shopee โดยตรง)</i></p></div>
+      <div class="card"><p>🎵 <b>เพลง built-in มีข้อจำกัดเชิงพาณิชย์</b> — คลิปขายของควรใช้เพลงที่เคลียร์ลิขสิทธิ์แล้ว</p></div>
+      <div class="card"><p>👑 <b>ลายน้ำขึ้นเฉพาะเทมเพลต/เอฟเฟกต์ที่มีไอคอนมงกุฎ</b> — export ปกติจากตัวฟรีไม่มีลายน้ำ</p></div>
+      <div class="card"><p>📅 <b>CapCut และ Shopee เปลี่ยนฟีเจอร์บ่อย</b> — เอกสารนี้อ้างอิงข้อมูล ณ ก.ค. 2026 ควรเช็กในแอปอีกที</p></div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ══════════════════ 2. ChatGPT ══════════════════ -->
+<section class="view" data-k="gpt" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>มุมมองที่ 1 — ChatGPT</b>
+    <span>ต้นฉบับ: <code>ChatGPT.html</code> · จุดเด่น: จัดอันดับความคุ้มเป็น tier + workflow เป็นแผนภาพ</span>
+  </div>
+
+  <div class="sec">
+    <div class="good">
+      <h3>⭐ แนะนำสำหรับคนขาย Shopee</h3>
+      <p>ถ้าทำคอนเทนต์ขายของเป็นประจำ ควรใช้ AI เพื่อช่วย <b>"ลดเวลาตัดต่อ"</b> ไม่ใช่ให้ AI ทำคลิปทั้งหมด</p>
+      <p style="margin-top:8px">Workflow ที่ดีที่สุดคือ:</p>
+      <ol>
+        <li>ถ่ายสินค้าจริง</li><li>AI Auto Cut</li><li>Auto Caption</li><li>AI Enhance</li>
+        <li>Product Photo ทำรูปปก</li><li>Smart Ads สร้างหลายเวอร์ชัน</li><li>ลง Shopee Video</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">01</span><h2>Marketing Tools</h2></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ฟังก์ชัน</th><th>คืออะไร</th><th>เหมาะกับ</th><th class="mid">แนะนำ</th></tr></thead>
+        <tbody>
+          <tr><td><b>Smart Ads</b></td><td>AI สร้างคลิปโฆษณาอัตโนมัติ จากรูปหรือวิดีโอสินค้า ใส่เพลง ข้อความ และตัดต่อให้</td><td>Shopee, TikTok, Reels</td><td class="mid star">★★★★★</td></tr>
+          <tr><td><b>Product Photo</b></td><td>เปลี่ยนรูปสินค้าธรรมดาให้เหมือนถ่ายใน Studio หรือฉากสวย ๆ</td><td>รูปปกสินค้า, Thumbnail</td><td class="mid star">★★★★★</td></tr>
+          <tr><td><b>AI Poster</b></td><td>สร้างโปสเตอร์ โปรโมชัน แบนเนอร์ ลดราคา</td><td>Facebook, LINE, Shopee Banner</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td><b>AI Fashion Model</b></td><td>AI สร้างนายแบบ/นางแบบใส่เสื้อผ้าของเรา</td><td>ร้านเสื้อผ้า รองเท้า แฟชั่น</td><td class="mid star">★★★☆☆</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">02</span><h2>AI Tools ที่ควรใช้บ่อย</h2></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ฟังก์ชัน</th><th>ใช้ทำอะไร</th><th class="mid">แนะนำ</th></tr></thead>
+        <tbody>
+          <tr><td>AI Auto Cut</td><td>ตัดช่วงเงียบ ตัดช็อตเสีย จัดจังหวะคลิปอัตโนมัติ</td><td class="mid star">★★★★★</td></tr>
+          <tr><td>Auto Caption</td><td>สร้างซับไทยอัตโนมัติ</td><td class="mid star">★★★★★</td></tr>
+          <tr><td>Remove Background</td><td>ลบพื้นหลังสินค้า</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td>AI Enhance</td><td>เพิ่มความคม ลด Noise</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td>Script Generator</td><td>AI ช่วยเขียนสคริปต์ขายสินค้า</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td>AI Voice</td><td>อ่านข้อความแทนเรา</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td>Text to Video</td><td>พิมพ์ข้อความแล้ว AI สร้างคลิป</td><td class="mid star">★★★☆☆</td></tr>
+          <tr><td>Motion Tracking</td><td>ให้ข้อความหรือสติกเกอร์ตามสินค้า</td><td class="mid star">★★★☆☆</td></tr>
+          <tr><td>AI Relight</td><td>ปรับแสงเหมือนถ่าย Studio</td><td class="mid star">★★★☆☆</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">03</span><h2>Workflow ที่แนะนำ</h2></div>
+    <div class="card">
+<pre class="flow">📷 ถ่ายสินค้า
+      ↓
+✂️ AI Auto Cut
+      ↓
+💬 Auto Caption
+      ↓
+✨ AI Enhance
+      ↓
+🖼️ Product Photo (ทำรูปปก)
+      ↓
+🎬 Smart Ads (สร้างหลายเวอร์ชัน)
+      ↓
+🚀 ลง Shopee Video</pre>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">04</span><h2>สรุปความคุ้ม</h2></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th class="mid">อันดับ</th><th>ฟังก์ชัน</th><th class="mid">ความคุ้ม</th></tr></thead>
+        <tbody>
+          <tr><td class="mid">🥇</td><td>AI Auto Cut</td><td class="mid star">★★★★★</td></tr>
+          <tr><td class="mid">🥇</td><td>Auto Caption</td><td class="mid star">★★★★★</td></tr>
+          <tr><td class="mid">🥇</td><td>Smart Ads</td><td class="mid star">★★★★★</td></tr>
+          <tr><td class="mid">🥇</td><td>Product Photo</td><td class="mid star">★★★★★</td></tr>
+          <tr><td class="mid">🥈</td><td>Remove Background</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td class="mid">🥈</td><td>AI Enhance</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td class="mid">🥈</td><td>Script Generator</td><td class="mid star">★★★★☆</td></tr>
+          <tr><td class="mid">🥉</td><td>AI Poster</td><td class="mid star">★★★☆☆</td></tr>
+          <tr><td class="mid">🥉</td><td>AI Fashion Model</td><td class="mid star">★★★☆☆ <span style="color:var(--ink-faint)">(เฉพาะร้านแฟชั่น)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">05</span><h2>🎯 ถ้าทำ Shopee Video ทุกวัน</h2></div>
+    <div class="grid g3">
+      <div class="card"><h3>ใช้เป็นประจำ</h3><ul class="clean" style="margin-top:8px">
+        <li>AI Auto Cut</li><li>Auto Caption</li><li>Product Photo</li><li>Smart Ads</li><li>AI Enhance</li></ul></div>
+      <div class="card"><h3>ใช้เป็นบางครั้ง</h3><ul class="clean" style="margin-top:8px">
+        <li>AI Poster</li><li>Motion Tracking</li><li>AI Voice</li><li>Remove Background</li></ul></div>
+      <div class="card"><h3>ใช้เฉพาะบางธุรกิจ</h3><ul class="clean" style="margin-top:8px">
+        <li>AI Fashion Model (ร้านเสื้อผ้า)</li></ul></div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ══════════════════ 3. Gemini ══════════════════ -->
+<section class="view" data-k="gem" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>มุมมองที่ 2 — Gemini</b>
+    <span>ต้นฉบับ: <code>gemini-code-1784687864241.html</code> · จุดเด่น: เทียบ CapCut ฟรี vs Pro ละเอียดที่สุด</span>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">01</span><h2>เทคนิคทำคลิป Shopee Video ให้ปังและดันยอดขาย</h2></div>
+
+    <h3 style="margin-top:14px">1.1 การเตรียมเนื้อหา (Pre-Production)</h3>
+    <div class="card" style="margin-top:8px">
+      <ul class="clean">
+        <li><b>3 วินาทีแรก (Hook):</b> ดึงดูดสายตาทันทีด้วยปัญหา, ภาพ Before/After หรือผลลัพธ์สินค้า</li>
+        <li><b>กระชับตรงประเด็น:</b> ความยาว 15–30 วินาที ชูจุดเด่นสินค้า (USPs) ชัดเจน</li>
+        <li><b>สไตล์ UGC:</b> เน้นความสมจริง เป็นธรรมชาติ ดูเหมือนผู้ใช้จริงมารีวิว</li>
+        <li><b>ขนาดวิดีโอ:</b> แนวตั้ง (9:16) คมชัด สว่างตลอดคลิป</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top:18px">1.2 การตัดต่อและการนำเสนอ (Production)</h3>
+    <div class="card" style="margin-top:8px">
+      <ul class="clean">
+        <li><b>ใส่ Subtitle / ข้อความ:</b> เพราะคนส่วนใหญ่ดูคลิปแบบปิดเสียง</li>
+        <li><b>เพลง/เอฟเฟกต์ติดเทรนด์:</b> ช่วยเพิ่มโอกาสให้อัลกอริทึมดันเปิดการมองเห็น</li>
+        <li><b>Call to Action (CTA):</b> ชี้ชวนชัดเจน เช่น "พิกัดตะกร้าซ้ายล่าง"</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top:18px">1.3 การลงคลิปและการตั้งค่า (Optimization)</h3>
+    <div class="card" style="margin-top:8px">
+      <ul class="clean">
+        <li>ปักตะกร้าสินค้าตรงปก</li>
+        <li>เน้นย้ำเรื่อง <b>"คูปองส่วนลดพิเศษเฉพาะ Shopee Video"</b> เพื่อกระตุ้นการซื้อ</li>
+        <li>ลงคลิปอย่างสม่ำเสมอ วันละ 1–3 คลิป</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">02</span><h2>เปรียบเทียบโปรแกรมตัดต่อ &amp; เวอร์ชันของ CapCut</h2></div>
+
+    <h3>CapCut vs DaVinci Resolve</h3>
+    <p class="lead">สำหรับ Shopee Video แนะนำ <b>CapCut</b> มากกว่า เพราะเน้นงานไว มีฟังก์ชัน AI ช่วยทำซับไทย ลบช่วงเงียบ และมีเทมเพลตพร้อมใช้งาน ส่วน DaVinci เหมาะกับงานระดับ Cinema/Production ใหญ่ ๆ</p>
+
+    <h3 style="margin-top:18px">CapCut (ฟรี) vs CapCut Pro</h3>
+    <div class="scroll" style="margin-top:8px">
+      <table>
+        <thead><tr><th>ฟีเจอร์</th><th>CapCut ตัวฟรี</th><th>CapCut Pro</th></tr></thead>
+        <tbody>
+          <tr><td><b>การใช้งานบน PC</b></td><td>ใช้งานได้ฟรี 100% (ไม่มีลายน้ำ)</td><td>ใช้งานได้ครบทุกฟีเจอร์</td></tr>
+          <tr><td><b>Templates / เอฟเฟกต์</b></td><td>มีให้ใช้เยอะมากเพียงพอ</td><td>ปลดล็อกตัวพรีเมียมทั้งหมด</td></tr>
+          <tr><td><b>AI Auto Cut / Subtitle</b></td><td>ใช้ได้แต่จำกัดโควตา</td><td>ไม่จำกัดความยาว / ลบคำซ้ำคำเงียบได้เนียนกว่า</td></tr>
+          <tr><td><b>ความละเอียด Export</b></td><td>สูงสุด 1080p (เพียงพอมาก)</td><td>สูงสุด 4K / Bitrate สูง</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn">
+      <h3>ข้อสรุปเรื่อง CapCut PC</h3>
+      <p>สามารถโหลดและใช้งานบนคอมพิวเตอร์ได้ <b>ฟรี</b> ไม่จำเป็นต้องสมัคร Pro ตราบใดที่เราไม่ได้ไปกดใช้เอฟเฟกต์/ฟอนต์ที่มีป้ายสัญลักษณ์ "Pro" ติดอยู่</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">03</span><h2>สรุปเครื่องมือ CapCut Marketing Tools (AI)</h2></div>
+    <div class="grid g2">
+      <div class="card"><h3>🖼️ Product Photo — ฉากสินค้า AI</h3><p>ตัดฉากหลัง แล้วสร้างฉากสตูดิโอ/ธรรมชาติสวย ๆ เหมาะกับสินค้าของใช้ สกินแคร์ IT</p></div>
+      <div class="card"><h3>👗 AI Fashion Model — นางแบบ AI</h3><p>สวมชุดให้อยู่บนตัวนายแบบ/นางแบบ AI เหมาะกับร้านขายเสื้อผ้า แฟชั่น</p></div>
+      <div class="card"><h3>📰 AI Poster — โปสเตอร์โปรโมชัน</h3><p>จัดเลย์เอาต์ภาพสินค้าใส่ข้อความส่วนลด ทำภาพปกหรือภาพโพสต์</p></div>
+      <div class="card"><h3>🎬 Smart Ads — เจนคลิปโฆษณา</h3><p>นำภาพ/รายละเอียดสินค้ามาแปลงเป็นคลิปวิดีโอพร้อมเพลงและเสียงพากย์ในคลิกเดียว</p></div>
+    </div>
+
+    <h3 style="margin-top:20px">ฟีเจอร์ AI อื่น ๆ ที่แนะนำเพิ่มเติม</h3>
+    <div class="card" style="margin-top:8px">
+      <ul class="clean">
+        <li><b>Script to Video:</b> พิมพ์จุดขาย AI จะเขียนสคริปต์พูดและเจนออกมาเป็นวิดีโอให้ทันที</li>
+        <li><b>AI Avatar:</b> ตัวละคร AI ยืนพูดอ่านสคริปต์แทนการออกกล้องจริง</li>
+        <li><b>URL to Video:</b> ดึงลิงก์สินค้าจาก Shopee มาแปลงเป็นวิดีโอพร้อมขายได้ทันที</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ══════════════════ 4. Claude ══════════════════ -->
+<section class="view" data-k="cla" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>มุมมองที่ 3 — Claude</b>
+    <span>ต้นฉบับ: <code>shopee-video-capcut-playbook.html</code> · จุดเด่น: สเปคจริงของ Shopee + ข้อควรระวัง</span>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">01</span><h2>ปั้นคลิป Shopee Video ให้ปัง</h2></div>
+    <p class="lead">พฤติกรรมคนช้อปเปลี่ยนจากดูไลฟ์ยาว ๆ มาเป็นปัดดูคลิปสั้น หัวใจอยู่ที่ 3 วินาทีแรก + ความสม่ำเสมอ</p>
+
+    <div class="pipe">
+      <div class="pstep"><div><b>0:00–0:03 — Hook</b><small>ตัดช่วงเกริ่นทิ้ง โชว์ราคา / ปัญหาที่คนดูมี / ผลลัพธ์ก่อน-หลัง ทันที</small></div></div>
+      <div class="pstep"><div><b>Next — บอกว่าสินค้าแก้อะไร</b><small>สรุปให้ชัดใน 1 ประโยค ว่าคลิปนี้ช่วยเรื่องอะไร</small></div></div>
+      <div class="pstep"><div><b>Body — โชว์การใช้งานจริง</b><small>คนเชื่อ "ของจริง" มากกว่าคำพูด โชว์ผลลัพธ์ให้เห็น</small></div></div>
+      <div class="pstep"><div><b>End — ปิดด้วย CTA</b><small>"กดตะกร้าเหลือง / กดโค้ดในคลิป" — ความยาวรวม 15–30 วิ กำลังดี</small></div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card">
+        <h3>⚙️ สเปก &amp; ข้อจำกัด (จากหน้าทางการ Shopee)</h3>
+        <ul class="clean" style="margin-top:10px">
+          <li>ใส่สินค้าได้สูงสุด <b>6 ชิ้น/คลิป</b> + ใส่โค้ดส่วนลดร้าน/สินค้าในคลิปได้</li>
+          <li>ปักหมุดวิดีโอไว้บนโปรไฟล์ได้ <b>สูงสุด 3 คลิป</b></li>
+          <li>เปิด <b>"เพิ่มคุณภาพ"</b> ตอนอัปโหลดเสมอ — AI ของ Shopee ดันคลิปที่คมชัด</li>
+          <li>อัดแนวตั้ง <b>9:16</b> เต็มจอเหมือน TikTok/Reels</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📤 ตอนลง &amp; อัลกอริทึม</h3>
+        <ul class="clean" style="margin-top:10px">
+          <li><b>ผูกสินค้าให้ถูกตัว</b> เพื่อให้มีปุ่มกดเข้าหน้าสินค้า</li>
+          <li>ตั้งชื่อ + คำอธิบายชัดว่าคลิปแก้ปัญหาอะไร</li>
+          <li>แฮชแท็ก <b>เทรนด์ + เฉพาะกลุ่ม</b> และใส่คูปองในคลิปกระตุ้นซื้อ</li>
+          <li><b>ตอบคอมเมนต์ไว</b> + ลงวันละ 1 คลิป 30 วัน ดีกว่าลงรัวแล้วหาย</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warn">
+      <h3>เลี่ยง</h3>
+      <p>เกริ่นยาว · คลิปเบลอ/ไม่เปิดเพิ่มคุณภาพ · ลงไม่สม่ำเสมอ · ไม่ผูกสินค้า/ไม่มี CTA</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">02</span><h2>ตัดคลิปด้วยอะไรดี</h2></div>
+    <div class="grid g2">
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <span class="tag t-free">แนะนำสำหรับ Shopee</span>
+        <h3 style="margin-top:8px">CapCut</h3>
+        <p>เกิดมาเพื่อคอนเทนต์สั้น — มี <b>auto-cut</b>, <b>auto-captions ไทย</b>, template และ export 1080p (พอสำหรับ Shopee) <b>ตัวฟรีก็พอ</b> ไม่ต้องซื้อ Pro</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ink-faint)">
+        <span class="tag t-maybe">ทางเลือก</span>
+        <h3 style="margin-top:8px">DaVinci Resolve</h3>
+        <p>ตัวฟรีเก่งจริง ไม่มีลายน้ำ เหมาะถ้าอยาก <b>คุมสีจริงจัง</b> หรือจ่ายครั้งเดียวจบ (Studio $295) แต่ <b>overkill</b> + learning curve ชันสำหรับคลิปขายของ</p>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="note"><h3>แก้ความเข้าใจผิด</h3><p><b>CapCut ตัวฟรีมีบน PC ด้วย</b> ไม่ได้บังคับ Pro — โหลด desktop app ฟรีจาก capcut.com ใช้ multi-track / captions / 1080p ได้เหมือนมือถือ</p></div>
+      <div class="note"><h3>เรื่อง template</h3><p><b>ตัวฟรีมี template เยอะ</b> ลายน้ำขึ้น <u>เฉพาะ</u>ตัวที่มีไอคอนมงกุฎ 👑 — export ปกติไม่มีลายน้ำ</p></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">03</span><h2>ชุดเครื่องมือ Marketing / Commerce ของ CapCut</h2></div>
+    <p class="lead">ส่วนหนึ่งคือ CapCut for Business ที่ ByteDance ทำมาเจาะร้านค้า/advertiser โดยเฉพาะ</p>
+    <div class="grid g2">
+      <div class="card"><h3>🎬 Smart Ads <span class="tag t-free">ฟรี</span></h3><p>ใส่สินค้า/รูป แล้ว AI ร่างเป็นคลิปโฆษณาให้ เรามาปรับต่อ — ประหยัดเวลาช่วงสร้างคลิปมาก (ฝั่ง Business มีตัวแปลง URL หน้าสินค้าเป็นวิดีโอ + generate สคริปต์ด้วย)</p></div>
+      <div class="card"><h3>🖼️ AI Product Photo</h3><p>อัปรูปสินค้า 1 รูป AI ตัดพื้นหลัง จัดแสงใหม่ ใส่ฉาก lifestyle หลายแบบ export ตามขนาดแพลตฟอร์ม มี batch สลับสินค้าบนพื้นหลังเดิมทีเดียว</p></div>
+      <div class="card"><h3>📰 AI Poster</h3><p>อัปรูปสินค้า ระบบจัด layout หลายสไตล์ + typeset อัตโนมัติ (ใช้โมเดล Seedream 5.0 อันดับ 1 บน text-to-image leaderboard) เหมาะทำแบนเนอร์โปรฯ/บันเดิล</p></div>
+      <div class="card"><h3>👗 AI Fashion Model <span class="tag t-niche">เฉพาะแฟชั่น</span></h3><p>อัปรูปเสื้อผ้า + โมเดล ใส่ prompt แล้วสร้างภาพนางแบบใส่สินค้าได้ 4 แบบ/prompt ตัดค่าจ้างแบบ+สตูดิโอ — คุ้มเฉพาะถ้าขายเสื้อผ้า</p></div>
+    </div>
+
+    <div class="good">
+      <h3>ควรใช้ตัวไหน (ขึ้นกับว่าขายอะไร)</h3>
+      <ul class="clean" style="margin-top:8px">
+        <li><b>Smart Ads</b> — ตัวหลักสำหรับทำคลิปวันละตัว ร่างเร็วแล้วปรับ hook + ใส่ซับเอง</li>
+        <li><b>AI Product Photo</b> — ทำรูปหน้าสินค้า/thumbnail ให้คลีนดูโปร</li>
+        <li><b>AI Poster</b> — ช่วงมีโปรฯ/แคมเปญ ทำแบนเนอร์หรือ overlay</li>
+        <li><b>AI Fashion Model</b> — เฉพาะสายเสื้อผ้า/แฟชั่น อย่างอื่นข้ามได้</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-top:14px;border-left:3px solid var(--cla)">
+      <h3>➕ ตัวเสริมที่คุ้มใช้กับ Shopee</h3>
+      <p style="margin-top:6px">Auto-captions (ซับไทย) · AI voice / text-to-speech (พากย์แทนอัดเอง) · Long-to-short (ตัดไลฟ์ย้อนหลังเป็นคลิปสั้น) · URL-to-video · Image upscaler (รูปเก่าเบลอ→คม) · AI avatar/presenter (ไม่อยากออกกล้อง)</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="num">04</span><h2>ข้อควรระวัง ก่อนใช้จริง</h2></div>
+    <div class="grid g2">
+      <div class="card"><p>🌏 ฟีเจอร์ AI <b>ขึ้นกับภูมิภาค</b> — บางตัวอาจไม่โผล่ในแอปไทย ต้องเช็กในแอปจริง และหลายตัวเข้าถึงง่ายกว่าบน mobile/web มากกว่า desktop</p></div>
+      <div class="card"><p>💳 ตัวฟรีมี <b>โควตา/เครดิต AI รายเดือน</b> จำกัด ใช้หนักต้องขึ้น Pro หรือซื้อเครดิตเพิ่ม</p></div>
+      <div class="card">
+        <p>🖼️ <b>รูป AI ต้องไม่บิดเบือนสินค้าจริง</b> — บน Shopee ถ้ารูป listing ไม่ตรงของจริงเสี่ยงผิดกฎ/ลูกค้าเข้าใจผิด ใช้ AI แต่งฉาก/แสงได้ แต่ตัวสินค้าต้องตรง</p>
+        <p style="margin-top:8px"><span class="tag t-niche">ยืนยันไม่ได้</span> นโยบายรูป AI ของ Shopee ไทย — เช็กกับ Shopee โดยตรง</p>
+      </div>
+      <div class="card">
+        <p>🎵 <b>เพลง built-in มีข้อจำกัดเชิงพาณิชย์</b> — คลิปขายของควรใช้เพลงที่เคลียร์ลิขสิทธิ์แล้ว</p>
+        <p style="margin-top:8px"><span class="tag t-niche">เช็กในแอป</span> ราคา: consensus คือ Standard ~$10 / Pro $19.99 ต่อเดือน (บางแหล่งต่างกัน)</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>CapCut × Shopee Video — รวม 4 มุมมอง</b> · ข้อมูล ณ ก.ค. 2026</p>
+    <p>รวมจาก <code>ChatGPT.html</code> · <code>gemini-code-1784687864241.html</code> · <code>shopee-video-capcut-playbook.html</code> — เนื้อหาต้นฉบับคงไว้ตามเดิม ยกเว้นตาราง Free/Pro ของ Gemini ที่ต้นฉบับใช้แท็กผิดจนตารางแตก</p>
+    <p>CapCut และ Shopee เปลี่ยนฟีเจอร์บ่อยและต่างกันตามภูมิภาค — ควรเช็กในแอปอีกครั้งก่อนตัดสินใจจ่ายเงิน</p>
+  </div>
+</footer>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const views = document.querySelectorAll('.view');
+
+function show(key){
+  tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.k === key)));
+  views.forEach(v => v.classList.toggle('on', v.dataset.k === key));
+  history.replaceState(null, '', '#' + key);
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.k)));
+
+// เปิดตามลิงก์ #gpt / #gem / #cla ได้
+const start = location.hash.slice(1);
+if ([...tabs].some(t => t.dataset.k === start)) show(start);
+
+// ลูกศรซ้าย/ขวาสลับแท็บ
+document.addEventListener('keydown', e => {
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  const keys = [...tabs].map(t => t.dataset.k);
+  const cur = keys.indexOf(document.querySelector('.view.on').dataset.k);
+  show(keys[(cur + (e.key === 'ArrowRight' ? 1 : keys.length - 1)) % keys.length]);
+});
+</script>
+
+</body>
+</html>
