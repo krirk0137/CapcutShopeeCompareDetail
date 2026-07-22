@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CapCut × Shopee Video — คู่มือรวม 6 แท็บ</title>
+<title>CapCut × Shopee Video — คู่มือรวม 7 แท็บ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
   --cla:#ee5a2c;  --cla-bg:#fdeee7;
   --qa:#0d8f92;   --qa-bg:#e4f5f5;
   --aff:#c2255c;  --aff-bg:#fdeaf1;
+  --web:#8a6000;  --web-bg:#fbf1dc;
 
   --ok:#0e9f6e;   --warn:#d98200;  --bad:#d64545;
   --accent:var(--sum);
@@ -41,6 +42,7 @@
     --cla:#ff8a5c; --cla-bg:#33201a;
     --qa:#4ecdc9; --qa-bg:#132b2c;
     --aff:#ff7aa8; --aff-bg:#331a24;
+    --web:#e8b647; --web-bg:#332a10;
     --ok:#3ecf95; --warn:#f0ad3d; --bad:#ff6b6b;
   }
 }
@@ -88,6 +90,7 @@ header p{color:var(--ink-soft);margin-top:10px;max-width:66ch}
 .tab[data-k="sum"]{--c:var(--sum)} .tab[data-k="gpt"]{--c:var(--gpt)}
 .tab[data-k="gem"]{--c:var(--gem)} .tab[data-k="cla"]{--c:var(--cla)}
 .tab[data-k="qa"]{--c:var(--qa)} .tab[data-k="aff"]{--c:var(--aff)}
+.tab[data-k="web"]{--c:var(--web)}
 .tab .dot{background:var(--c);opacity:1}
 .tab[aria-selected="true"]{
   color:#fff;background:var(--c);border-color:var(--c);
@@ -105,6 +108,10 @@ header p{color:var(--ink-soft);margin-top:10px;max-width:66ch}
 .view[data-k="cla"]{--accent:var(--cla);--accent-bg:var(--cla-bg)}
 .view[data-k="qa"]{--accent:var(--qa);--accent-bg:var(--qa-bg)}
 .view[data-k="aff"]{--accent:var(--aff);--accent-bg:var(--aff-bg)}
+.view[data-k="web"]{--accent:var(--web);--accent-bg:var(--web-bg)}
+pre.code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:13px;line-height:1.75;
+  white-space:pre;overflow-x:auto;background:var(--line-soft);border:1px solid var(--line);
+  border-radius:12px;padding:16px;color:var(--ink)}
 
 .source{
   display:flex;flex-wrap:wrap;align-items:center;gap:10px;
@@ -217,7 +224,7 @@ footer p{margin-bottom:5px}
   <div class="wrap">
     <span class="eyebrow">Shopee Video Playbook · ก.ค. 2026</span>
     <h1>CapCut × Shopee Video<br>รวมความเห็นจาก 3 AI + สรุปรวม</h1>
-    <p>เอกสารเดียวกัน 6 แท็บ — <b>สรุปรวม</b> บอกว่า 3 AI ตรงกันตรงไหน ต่างกันตรงไหน · <b>ถาม-ตอบ</b> เก็บคำถามที่ถกกันจริงพร้อมนโยบาย Shopee ที่ตรวจสอบแล้ว · <b>แผน Affiliate</b> คือแผนลงมือสำหรับคนที่ไม่มีร้านของตัวเอง</p>
+    <p>เอกสารเดียวกัน 7 แท็บ — <b>สรุปรวม</b> บอกว่า 3 AI ตรงกันตรงไหน ต่างกันตรงไหน · <b>ถาม-ตอบ</b> เก็บคำถามที่ถกกันจริงพร้อมนโยบาย Shopee ที่ตรวจสอบแล้ว · <b>แผน Affiliate</b> คือแผนลงมือสำหรับคนที่ไม่มีร้านของตัวเอง · <b>เว็บรวมสินค้า</b> คือเป้าหมายระยะยาว</p>
   </div>
 </header>
 
@@ -230,6 +237,7 @@ footer p{margin-bottom:5px}
       <button class="tab" data-k="cla" role="tab" aria-selected="false"><span class="dot"></span>Claude</button>
       <button class="tab" data-k="qa" role="tab" aria-selected="false"><span class="dot"></span>💬 ถาม-ตอบ</button>
       <button class="tab" data-k="aff" role="tab" aria-selected="false"><span class="dot"></span>🎯 แผน Affiliate</button>
+      <button class="tab" data-k="web" role="tab" aria-selected="false"><span class="dot"></span>🌐 รวมลิงก์ + เว็บ</button>
     </div>
   </div>
 </div>
@@ -1127,11 +1135,453 @@ footer p{margin-bottom:5px}
 </div>
 </section>
 
+<!-- ══════════════════ 7. เว็บรวมสินค้า ══════════════════ -->
+<section class="view" data-k="web" role="tabpanel">
+<div class="wrap">
+
+  <div class="source">
+    <b>รวมลิงก์ + เว็บรวมสินค้า</b>
+    <span>ถอดจากของจริง 2 ตัว: <a href="https://linkbio.co/ponnietn" target="_blank" rel="noopener">linkbio.co/ponnietn</a> (hub) และ <a href="https://ponniereview.vercel.app/" target="_blank" rel="noopener">ponniereview.vercel.app</a> (เว็บสินค้า) — <b>ดูเป็นไกด์เชิงโครงสร้างเท่านั้น หน้าตาออกแบบเอง</b></span>
+  </div>
+
+  <!-- ───── 01 ภาพรวม ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">01</span><h2>ภาพรวมทั้งระบบของเว็บตัวอย่าง</h2></div>
+    <p class="lead">เปิดดูทั้ง 2 ลิงก์แล้วเห็นภาพชัด — เขาไม่ได้มีแค่เว็บสินค้า แต่มี<b>ชั้นการเชื่อมต่อ</b>ที่วางไว้เป็นระบบ</p>
+
+    <div class="pipe">
+      <div class="pstep"><div><b>ชั้นที่ 1 — คลิป (ที่คนเจอคุณ)</b><small>TikTok · YouTube · Instagram · Twitch — คนดูคลิปแล้วสนใจ กดเข้าโปรไฟล์</small></div></div>
+      <div class="pstep"><div><b>ชั้นที่ 2 — Link-in-bio (ทางแยก)</b><small><code>linkbio.co/ponnietn</code> — ลิงก์เดียวใน bio ทุกแพลตฟอร์ม รวมทุกอย่างไว้ที่นี่ <b>แก้ที่เดียว เปลี่ยนทุกที่</b></small></div></div>
+      <div class="pstep"><div><b>ชั้นที่ 3 — ปลายทาง</b><small>เว็บสินค้า (แนะนำของ) · Discord · Facebook Group ซื้อ-ขาย · พรีของ pre-order · Donate</small></div></div>
+    </div>
+
+    <div class="note">
+      <h3>สิ่งที่อยู่ในหน้า link-in-bio ของเขา — 10 ปุ่ม</h3>
+      <div class="chips" style="margin-top:8px">
+        <span class="chip">☕ Easy Donate</span><span class="chip">Discord</span>
+        <span class="chip">🛒 แนะนำของ → เว็บสินค้า</span><span class="chip">พรีของ pre-order</span>
+        <span class="chip">YouTube</span><span class="chip">TikTok</span><span class="chip">Instagram</span>
+        <span class="chip">Twitch</span><span class="chip">Facebook Page</span><span class="chip">Facebook Group ซื้อ-ขาย</span>
+      </div>
+      <p style="margin-top:12px">สังเกตว่ามีทั้ง <b>ช่องทางดูคอนเทนต์</b> · <b>ที่รวมสินค้า</b> · <b>ชุมชน</b> · <b>ช่องทางสนับสนุน</b> — ครบทุกด้านในหน้าเดียว</p>
+    </div>
+  </div>
+
+  <!-- ───── 02 link-in-bio ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">02</span><h2>Link-in-bio — ขั้นที่ทำได้วันนี้เลย</h2></div>
+    <div class="good">
+      <h3>นี่คือชิ้นส่วนที่คุณควรทำก่อนเว็บ — ใช้เวลา 20 นาที ฟรี</h3>
+      <p>ในข้อ 04 ผมเขียนว่า "อย่าเพิ่งทำเว็บ" — แต่ <b>link-in-bio ต่างออกไป</b> เพราะต้นทุนเกือบเป็นศูนย์ ทำเสร็จใน 20 นาที และแก้ปัญหาที่มีอยู่จริงตั้งแต่คลิปแรก</p>
+    </div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card">
+        <h3>ปัญหาที่มันแก้</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li>แต่ละแพลตฟอร์มให้ใส่ลิงก์ใน bio ได้<b>อันเดียว</b></li>
+          <li>ถ้าใส่ลิงก์สินค้าตรง ๆ ต้อง<b>แก้ทุกครั้งที่ลงคลิปใหม่</b> × 3–5 แพลตฟอร์ม</li>
+          <li>คนดูคลิปเก่าเมื่อเดือนที่แล้ว กดเข้ามาก็เจอลิงก์ของคลิปล่าสุด — <b>หาไม่เจอสิ่งที่ตามหา</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>วิธีที่ถูก</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li>ใส่ <b>ลิงก์ link-in-bio อันเดียว</b> ในทุกแพลตฟอร์ม แล้วไม่ต้องแตะอีกเลย</li>
+          <li>อัปเดตเนื้อหาข้างในแทน — <b>แก้ที่เดียว เปลี่ยนทุกที่พร้อมกัน</b></li>
+          <li>ช่วงแรกใส่ปุ่มไปหมวดสินค้า/สินค้าเด่นได้เลย <b>ยังไม่ต้องมีเว็บ</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:20px">เลือกเครื่องมือตัวไหน</h3>
+    <div class="scroll" style="margin-top:8px">
+      <table>
+        <thead><tr><th>ตัวเลือก</th><th>หมายเหตุ</th></tr></thead>
+        <tbody>
+          <tr><td><b>Linkbio / Instabio</b> <span class="tag t-free">ที่เว็บตัวอย่างใช้</span></td><td>ฟรี ปรับแต่งได้เยอะ รองรับปุ่มไอคอนแบบที่เห็น</td></tr>
+          <tr><td><b>Linktree</b></td><td>ดังที่สุด ใช้ง่ายที่สุด ตัวฟรีพอสำหรับเริ่มต้น</td></tr>
+          <tr><td><b>Bio.link · Beacons · Milkshake</b></td><td>ทางเลือกอื่น ฟีเจอร์ใกล้เคียงกัน</td></tr>
+          <tr><td><b>ทำเองเป็นหน้า HTML เดียว</b></td><td>คุมได้ 100% ไม่มีโฆษณา host ฟรีบน GitHub Pages — <b>ทำทีหลังได้ ไม่ต้องรีบ</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <h3>เรียงปุ่มยังไงให้ได้ผล</h3>
+      <p><b>ปุ่มบนสุดได้คลิกมากที่สุดแบบทิ้งห่าง</b> — เอาสิ่งที่อยากให้คนกดที่สุดไว้บนสุดเสมอ</p>
+      <ol style="margin-top:8px">
+        <li><b>ของที่รีวิวทั้งหมด</b> (หรือหมวดยอดฮิต) — นี่คือตัวทำเงิน</li>
+        <li>สินค้าที่เพิ่งรีวิวในคลิปล่าสุด</li>
+        <li>ช่องทางอื่น ๆ (YouTube / IG / FB)</li>
+        <li>ชุมชน / ติดต่อ</li>
+      </ol>
+      <p style="margin-top:10px"><b>อย่าใส่เกิน 7–8 ปุ่ม</b> — ยิ่งเยอะยิ่งไม่มีใครกดอะไรเลย เว็บตัวอย่างมี 10 ปุ่มได้เพราะเขามีของครบทุกด้านแล้ว ตอนเริ่มต้น 3–4 ปุ่มพอ</p>
+    </div>
+
+    <div class="warn">
+      <p>⚠️ <b>บางแพลตฟอร์มจำกัดการใส่ลิงก์ใน bio ตอนเริ่มต้น</b> (เช่น TikTok เคยต้องมีผู้ติดตามถึงเกณฑ์ก่อน และเงื่อนไขเปลี่ยนบ่อย) <span class="tag t-niche">เช็กในแอป</span> ถ้ายังใส่ไม่ได้ ให้พิมพ์ชื่อ link-in-bio ไว้ในคำอธิบายโปรไฟล์ไปก่อน</p>
+    </div>
+  </div>
+
+  <!-- ───── 03 ถอดโครงสร้าง ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">03</span><h2>ถอดโครงสร้างเว็บสินค้า</h2></div>
+    <p class="lead">เข้าไปดูถึงหน้าสินค้าจริงแล้ว — โครงสร้างเรียบง่ายกว่าที่คิดมาก และทำตามได้จริง</p>
+
+    <div class="warn">
+      <h3>⚠️ อ่านส่วนนี้เป็น "ไกด์เชิงโครงสร้าง" เท่านั้น</h3>
+      <p>ที่ถอดมาคือ <b>ระบบจัดข้อมูลและลำดับความคิด</b> — มีหมวดกี่ชั้น · การ์ดควรมีอะไร · ต่อฐานข้อมูลยังไง</p>
+      <p style="margin-top:8px"><b>หน้าตา สี ฟอนต์ เลย์เอาต์ — ออกแบบเองทั้งหมด</b> ไม่ลอก CSS ของเขา นอกจากเรื่องลิขสิทธิ์แล้ว การมีหน้าตาเป็นของตัวเองคือสิ่งที่ทำให้คนจำแบรนด์คุณได้</p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ส่วน</th><th>มีอะไร</th></tr></thead>
+        <tbody>
+          <tr><td><b>Header</b></td><td>โลโก้ + ปุ่มสลับ Dark mode</td></tr>
+          <tr><td><b>แถบ social proof</b></td><td>YouTube 28K subs · Discord 20K users · กลุ่ม Facebook — เลื่อนซ้ายขวาได้</td></tr>
+          <tr><td><b>เมนูหมวด</b></td><td><b>4 กลุ่มใหญ่ → 25 หมวดย่อย</b><br>GAMING🔥 (8) · HEALTHY⭐️ (6) · HOME (5) · LIFESTYLE (6)</td></tr>
+          <tr><td><b>หัวหมวด</b></td><td>ชื่อหมวด + <b>จำนวนรายการ</b> ("24 รายการ")</td></tr>
+          <tr><td><b>ปุ่มเรียงลำดับ</b></td><td>⭐ แนะนำ · 💰 ถูก→แพง · 💎 แพง→ถูก <i>(ไม่มีช่องค้นหา ไม่มีฟิลเตอร์)</i></td></tr>
+          <tr><td><b>การ์ดสินค้า</b></td><td>รูป · ชื่อ + emoji ระดับ · <b>คอมเมนต์สั้น 1 บรรทัด</b> · ราคาเต็มขีดฆ่า + ราคาลด · ปุ่ม 🌐 ลิงก์ · ปุ่ม 🚩 แจ้งลิงก์เสีย</td></tr>
+          <tr><td><b>ลิงก์ออก</b></td><td><code>s.shopee.co.th</code> · <code>s.lazada.co.th</code> · <code>s.click.aliexpress.com</code></td></tr>
+          <tr><td><b>Footer</b></td><td>อีเมลติดต่อ + ปุ่ม ☕ Donate</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="note">
+        <h3>🔍 3 อย่างที่เขาทำฉลาด — ลอกได้เลย</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li><b>คอมเมนต์สั้น 1 บรรทัดต่อสินค้า</b> เช่น "ดีกว่า GPX ทั้งภายในและภายนอก" — นี่คือสิ่งที่ทำให้ไม่ใช่แค่ลิสต์สินค้าธรรมดา คนกลับมาเพราะ<b>ความเห็น</b> ไม่ใช่เพราะลิงก์</li>
+          <li><b>emoji แทนระบบดาว</b> 🔥 = คุ้ม · ⭐️ = แนะนำ · 💀 = ไม่คุ้ม/overkill — สื่อได้ทันทีโดยไม่ต้องเขียนระบบ rating</li>
+          <li><b>ปุ่ม 🚩 แจ้งลิงก์เสีย/หมด</b> — ลิงก์ affiliate หมดอายุตลอด ให้คนดูช่วยดูแลแทนที่จะไล่เช็กเอง <b>ข้อนี้สำคัญกว่าที่คิดมาก</b></li>
+        </ul>
+      </div>
+      <div class="warn">
+        <h3>⚙️ ข้อสังเกตทางเทคนิค</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li><b>เป็นเว็บ static ล้วน ไม่มี backend</b> — เปลี่ยนหมวดใช้ <code>#cat=ชื่อหมวด</code> บน URL host ฟรีบน Vercel ได้เลย</li>
+          <li><b>รูปดึงตรงจาก CDN ของ Shopee</b> (<code>susercontent.com</code>) ไม่ได้เก็บรูปเอง — ประหยัดพื้นที่ แต่รูปหายได้ถ้าร้านลบ (อีกเหตุผลที่ต้องมีปุ่ม 🚩)</li>
+          <li><b>ข้อมูลสินค้าใช้ Google Sheet เป็นฐานข้อมูล</b> <span class="tag" style="background:var(--ok);color:#fff">ยืนยันแล้ว</span> — ดูข้อ 06</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── 02 จังหวะ ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">04</span><h2>ทำได้แน่นอน — แต่จังหวะสำคัญกว่า</h2></div>
+    <div class="warn">
+      <h3>บทเรียนที่สำคัญที่สุดจากเว็บตัวอย่าง</h3>
+      <p>สังเกตแถบบนสุดของเขา — <b>YouTube 28K subs · Discord 20K users · กลุ่ม Facebook</b></p>
+      <p style="margin-top:10px"><b>เขามีคนก่อน แล้วค่อยทำเว็บ</b> ไม่ใช่ทำเว็บเพื่อหาคน</p>
+      <p style="margin-top:10px">เว็บรวมสินค้า<b>ไม่ใช่เครื่องมือหาคน — มันคือเครื่องมือเก็บเกี่ยวคนที่มีอยู่แล้ว</b> ไม่มีใครค้นเจอเว็บ affiliate ของคนแปลกหน้าใน Google คนเข้าเพราะดูคลิปคุณแล้วอยากรู้ว่า "ของที่รีวิวไปทั้งหมดอยู่ไหน"</p>
+      <p style="margin-top:10px">ถ้าทำเว็บตอนยังไม่มีคนดู ผลคือ<b>เว็บสวยที่ไม่มีคนเข้า</b> และเสียเวลาที่ควรเอาไปถ่ายคลิป</p>
+    </div>
+
+    <div class="scroll" style="margin-top:14px">
+      <table>
+        <thead><tr><th class="mid">ช่วง</th><th>โฟกัส</th><th>เรื่องเว็บ</th></tr></thead>
+        <tbody>
+          <tr><td class="mid"><b>ตอนนี้ → 30 คลิป</b></td><td>ถ่าย + ลง TikTok/Shopee</td><td><b>ยังไม่ทำเว็บ</b> — แต่<b>ทำ link-in-bio เลย</b> (ข้อ 02) และ<b>เริ่มเก็บข้อมูลลงชีตตั้งแต่คลิปแรก</b> (ข้อ 05)</td></tr>
+          <tr><td class="mid"><b>~50–100 คลิป</b></td><td>เริ่มมีคนตามและถามซ้ำ ๆ ว่า "ลิงก์อยู่ไหน"</td><td>ตอนนี้แหละคือจังหวะ — ข้อมูลพร้อมแล้ว ทำเว็บใช้เวลาไม่กี่วัน</td></tr>
+          <tr><td class="mid"><b>หลังเว็บขึ้น</b></td><td>ใส่ลิงก์เว็บใน bio ทุกแพลตฟอร์ม</td><td>เว็บกลายเป็นศูนย์กลาง ลิงก์เดียวใช้ได้ทุกที่ ไม่ต้องแก้ bio ทุกครั้ง</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ───── 03 เริ่มวันนี้ ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">05</span><h2>สิ่งที่ควรเริ่มทำวันนี้ — เก็บข้อมูลลงชีต</h2></div>
+    <p class="lead">นี่คือสะพานระหว่าง "ยังไม่ทำเว็บ" กับ "ทำเว็บได้เร็ว" — ถ้าเก็บไปเรื่อย ๆ ตั้งแต่วันนี้ วันที่จะทำเว็บจริงคุณแค่เอาชีตไปแปลงเป็น JSON จบ</p>
+    <div class="note">
+      <p><b>เปิด Google Sheet ใหม่ 1 ไฟล์ ตั้งคอลัมน์ตามนี้ แล้วกรอกทุกครั้งที่ถ่ายคลิปเสร็จ 1 ตัว</b> — ใช้เวลาเพิ่มแค่นาทีเดียว แต่ประหยัดการย้อนกลับไปทำใหม่เป็นสิบชั่วโมง</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>คอลัมน์</th><th>ตัวอย่าง</th><th>ทำไมต้องมี</th></tr></thead>
+        <tbody>
+          <tr><td><code>ชื่อสินค้า</code></td><td>ATK A9 Air</td><td>—</td></tr>
+          <tr><td><code>หมวด</code></td><td>gaming / เมาส์</td><td>ใช้จัดกลุ่มบนเว็บ</td></tr>
+          <tr><td><code>คอมเมนต์สั้น</code></td><td>"เบา จับถนัด คุ้มสุดในงบ 1,500"</td><td><b>สำคัญที่สุด</b> — เขียนตอนเพิ่งใช้เสร็จ อย่ารอ จะลืม</td></tr>
+          <tr><td><code>ระดับ</code></td><td>🔥 / ⭐️ / 💀</td><td>ใช้เรียงลำดับและกรอง</td></tr>
+          <tr><td><code>ราคาที่ซื้อ</code></td><td>1,500</td><td>ใช้แสดงราคา + เรียงถูก/แพง</td></tr>
+          <tr><td><code>ลิงก์รูป</code></td><td>คัดลอก URL รูปจากหน้าสินค้า</td><td>ไม่ต้องถ่ายรูปเอง</td></tr>
+          <tr><td><code>ลิงก์ Shopee</code></td><td>s.shopee.co.th/…</td><td rowspan="3">ลิงก์ affiliate ของแต่ละที่ — <b>เก็บครบทั้ง 3 ตั้งแต่แรก</b></td></tr>
+          <tr><td><code>ลิงก์ Lazada</code></td><td>s.lazada.co.th/…</td></tr>
+          <tr><td><code>ลิงก์ TikTok</code></td><td>—</td></tr>
+          <tr><td><code>ลิงก์คลิปของเรา</code></td><td>tiktok.com/@ฉัน/video/…</td><td><b>ข้อนี้เว็บตัวอย่างไม่มี แต่คุณควรมี</b> — ให้คนกดดูรีวิวเต็มได้จากหน้าเว็บ</td></tr>
+          <tr><td><code>วันที่อัปเดต</code></td><td>2026-07-22</td><td>ไว้ไล่เช็กลิงก์ที่เก่าเกิน 6 เดือน</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <h3>4 อย่างที่ควรลอกจากชีตจริงของเว็บตัวอย่าง</h3>
+      <ul class="clean" style="margin-top:8px">
+        <li><b>แยกหมวดเป็น 2 ชั้น</b> — <code>MainCategory</code> (Gaming/Healthy/Home/Lifestyle) + <code>Category</code> (เมาส์/คีย์บอร์ด) แทนที่จะยัดรวมช่องเดียว</li>
+        <li><b>มีช่องลิงก์ Shopee 2 ช่อง</b> — คนละร้าน/คนละดีล เผื่อร้านหนึ่งของหมดหรือลิงก์ตาย</li>
+        <li><b>ไม่ต้องมีคอลัมน์ "ระดับ" แยก</b> — เขาใส่ 🔥⭐️💀 ไว้<b>หน้าชื่อสินค้า</b>เลย ประหยัดคอลัมน์และเห็นทันทีตอนดูชีต</li>
+        <li><b>มีช่อง <code>Other</code></b> เผื่อ AliExpress หรือลิงก์นอกเหนือจาก 2 เจ้าหลัก</li>
+      </ul>
+      <p style="margin-top:10px">ส่วน <code>ลิงก์คลิปของเรา</code> กับ <code>วันที่อัปเดต</code> เขาไม่มี — แต่<b>คุณควรมี</b> เพราะคุณทำคลิปเอง</p>
+    </div>
+  </div>
+
+  <!-- ───── 04 schema ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">06</span><h2>เว็บตัวอย่างใช้ Google Sheet เป็นฐานข้อมูลจริง</h2></div>
+    <div class="good">
+      <h3>ตรวจสอบแล้ว ไม่ใช่การเดา</h3>
+      <p>เปิดดู network request ของเว็บตัวอย่าง — หน้าเว็บเรียก <code>/api/products?t=…</code> แล้วได้ <b>CSV กลับมา ไม่ใช่ JSON</b> และไม่ได้ฝังข้อมูลไว้ในหน้าเว็บเลย</p>
+    </div>
+
+    <p class="lead" style="margin-top:16px">หัวตารางจริงของเขา 11 คอลัมน์ — นี่คือหน้าตาชีตของเขาเป๊ะ ๆ</p>
+    <pre class="code">MainCategory,Category,Product,Description,Cover,Price,Discounted,Shopee1,Shopee2,Lazada,Other
+
+Gaming🔥,🖱️เมาส์ Mouse,🔥🔥Rapoo VT2,"สเปคดีสุดในงบ 1,000 บูด",https://…webp,"฿1,199",฿899,https://s.shopee.co.th/9fJQ5OztXm
+Gaming🔥,🖱️เมาส์ Mouse,ATK A9 (Air/Mini+⭐️),ดีกว่าGPXทั้งภายในและภายนอก,https://…jpg,"฿2,000","฿1,500",https://s.shopee.co.th/…,https://s.shopee.co.th/…,https://s.lazada.co.th/…
+,,⭐️Rapoo VT0,Best budget claw grip,https://…avif,"฿1,400","฿1,050",https://s.shopee.co.th/…</pre>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="note">
+        <h3>🔎 หลักฐานว่าเป็น Google Sheet</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li>เป็น CSV ที่ใส่ <code>""</code> ครอบค่าที่มีจุลภาค (<code>"฿1,199"</code>) — รูปแบบ export ของ Sheets</li>
+          <li><b>ราคาเก็บเป็นข้อความมี ฿ และจุลภาค</b> ไม่ใช่ตัวเลข — แบบที่คนพิมพ์ลงช่องตรง ๆ</li>
+          <li><b>สองคอลัมน์แรกเว้นว่างในแถวถัดมา</b> แล้วให้โค้ดเข้าใจว่า "เหมือนแถวบน" — พฤติกรรมสเปรดชีตล้วน ๆ</li>
+          <li>มี <code>?t=1784691838496</code> ต่อท้าย = cache buster ดึงข้อมูลสดทุกครั้ง</li>
+          <li>มีแถวชื่อ <code>✅Tier✅</code> ราคา ฿0 ชี้ไปหน้า <code>/tier</code> — <b>ใช้แถวข้อมูลทำปุ่มเมนู</b> แฮ็กแบบสเปรดชีตแท้</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>💡 ทำไมถึงสำคัญกับคุณ</h3>
+        <p><b>ข้อมูลเปลี่ยนได้โดยไม่ต้อง deploy ใหม่</b> — แก้ราคาในชีต รีเฟรชหน้าเว็บ เปลี่ยนทันที</p>
+        <p style="margin-top:8px">แปลว่าคนที่ดูแลเว็บ<b>ไม่จำเป็นต้องเขียนโค้ดเป็น</b> เพิ่มสินค้า = เพิ่มแถวในชีต เหมือนกรอก Excel</p>
+        <p style="margin-top:8px">และแปลว่า <b>ชีตที่คุณเริ่มเก็บวันนี้ (ข้อ 05) คือตัวเว็บเลย</b> ไม่ใช่แค่ที่จดชั่วคราว</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:22px">2 วิธีต่อชีตเข้ากับเว็บ</h3>
+    <div class="scroll" style="margin-top:8px">
+      <table>
+        <thead><tr><th>วิธี</th><th>ทำยังไง</th><th>ข้อดี / ข้อเสีย</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>ดึงจาก Google ตรง ๆ</b></td>
+            <td>ตั้งชีตเป็น "ทุกคนที่มีลิงก์ดูได้" แล้วให้เว็บ fetch ลิงก์ export CSV ของชีต</td>
+            <td>ง่ายสุด ไม่ต้องมี backend เลย · แต่<b>ใครก็เห็น ID ชีตคุณ</b></td>
+          </tr>
+          <tr>
+            <td><b>ผ่าน API กลาง</b> <span class="tag t-free">เว็บตัวอย่างใช้วิธีนี้</span></td>
+            <td>ทำ endpoint เล็ก ๆ (<code>/api/products</code>) ไปอ่านชีตแล้วส่งต่อ</td>
+            <td><b>ซ่อน ID ชีตได้</b> คุม cache ได้ · แต่ต้องมี host ที่รันโค้ดได้ (Vercel ฟรี)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><b>เริ่มจากวิธีแรกก่อนได้เลย</b> — ย้ายไปวิธีที่สองทีหลังใช้เวลาไม่นาน และตอนเริ่มต้นการที่คนเห็น ID ชีตก็ไม่ได้เสียหายอะไร</p>
+    </div>
+  </div>
+
+  <!-- ───── 05 ทางเลือกเทค ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">07</span><h2>จะสร้างด้วยอะไรดี</h2></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>วิธี</th><th>ข้อดี</th><th>ข้อเสีย</th><th class="mid">เหมาะกับ</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Google Sheet เป็นฐานข้อมูล</b><br><small style="color:var(--ink-faint)">เว็บอ่าน CSV จากชีต</small></td>
+            <td>แก้ข้อมูลในชีตแล้วเว็บอัปเดตเอง <b>ไม่ต้องแตะโค้ดอีกเลย</b> · <b>เว็บตัวอย่างใช้วิธีนี้จริง</b> (ดูข้อ 06)</td>
+            <td>โหลดช้ากว่านิดหน่อย</td>
+            <td class="mid"><span class="tag t-must">แนะนำ</span></td>
+          </tr>
+          <tr>
+            <td><b>HTML ไฟล์เดียว + JSON ข้างใน</b></td>
+            <td>เหมือนไฟล์ที่คุณอ่านอยู่นี้เลย · เร็วมาก · host ฟรี GitHub Pages</td>
+            <td>เพิ่มสินค้าต้องแก้ไฟล์ทุกครั้ง</td>
+            <td class="mid"><span class="tag t-should">ก็ดี</span></td>
+          </tr>
+          <tr>
+            <td><b>Next.js + Vercel</b> <small style="color:var(--ink-faint)">(แบบเว็บตัวอย่าง)</small></td>
+            <td>ยืดหยุ่นสุด ทำอะไรก็ได้ · โดเมนฟรี</td>
+            <td>ต้องเขียนโค้ดเป็น · <b>เกินความจำเป็นสำหรับเริ่มต้น</b></td>
+            <td class="mid"><span class="tag t-maybe">ทีหลัง</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="good">
+      <p><b>คำแนะนำ:</b> อย่าเพิ่งเลือกตอนนี้ — <b>ไปเก็บข้อมูลลงชีตก่อน</b> พอมีสินค้าสัก 50 ตัวค่อยตัดสินใจ ตอนนั้นข้อมูลพร้อมแล้ว เปลี่ยนวิธีแสดงผลทีหลังง่ายมาก แต่ถ้าไม่มีข้อมูล เลือกเทคยังไงก็สร้างไม่ได้</p>
+    </div>
+  </div>
+
+  <!-- ───── 06 ฟีเจอร์ ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">08</span><h2>ฟีเจอร์ไหนต้องมี ฟีเจอร์ไหนยังไม่ต้อง</h2></div>
+    <div class="grid g2">
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <h3>✅ เวอร์ชันแรกต้องมี</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li>แบ่งหมวด + นับจำนวนรายการ</li>
+          <li>การ์ดสินค้า: รูป · ชื่อ · <b>คอมเมนต์สั้น</b> · ราคา</li>
+          <li>ปุ่มลิงก์แยกตามแพลตฟอร์ม</li>
+          <li><b>ปุ่มแจ้งลิงก์เสีย</b> — แค่ลิงก์ mailto: หรือฟอร์ม Google ก็พอ</li>
+          <li>เปิดบนมือถือแล้วอ่านง่าย (คนเข้าจากคลิปเกือบทั้งหมดใช้มือถือ)</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ink-faint)">
+        <h3>⏳ ยังไม่ต้องมี</h3>
+        <ul class="clean" style="margin-top:8px">
+          <li>ช่องค้นหา — <i>เว็บตัวอย่างที่มี 25 หมวดยังไม่มีเลย</i></li>
+          <li>ระบบ login / สมาชิก</li>
+          <li>ระบบคอมเมนต์</li>
+          <li>ดึงราคาอัตโนมัติ — ราคาเปลี่ยนบ่อย แต่ไม่คุ้มกับความยุ่งยาก ใส่มือแล้วเขียนกำกับว่า "ราคา ณ วันที่..."</li>
+          <li>Dark mode — มีก็ดี แต่ไม่ใช่สิ่งที่ทำให้คนกดซื้อ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── 07 ระวัง ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">09</span><h2>ข้อควรระวัง</h2></div>
+    <div class="grid g2">
+      <div class="card"><p>🔗 <b>ลิงก์ affiliate หมดอายุ / สินค้าเลิกขาย</b> — เกิดตลอด ต้องมีทั้งปุ่มให้คนแจ้ง และนิสัยไล่เช็กเองเดือนละครั้ง</p></div>
+      <div class="card"><p>🖼️ <b>ดึงรูปจาก CDN ร้านค้า = รูปหายได้</b> ถ้าร้านลบสินค้า — ถ้าอยากชัวร์ให้เซฟรูปเก็บเอง แต่ตอนเริ่มดึงตรงไปก่อนได้</p></div>
+      <div class="card"><p>📢 <b>ควรบอกให้ชัดว่าเป็นลิงก์ affiliate</b> — เขียนบรรทัดเดียวที่ footer พอ สร้างความเชื่อใจ และหลายแพลตฟอร์มก็กำหนดให้เปิดเผยอยู่แล้ว</p></div>
+      <div class="card"><p>💬 <b>คอมเมนต์ต้องเป็นความเห็นจริง</b> — จุดขายทั้งหมดของเว็บแบบนี้คือความเห็นที่เชื่อได้ ถ้าเขียนชมทุกตัวเพื่อค่าคอม เว็บจะไม่มีค่าทันที</p></div>
+    </div>
+  </div>
+
+  <!-- ───── 10 host ───── -->
+  <div class="sec">
+    <div class="sec-head"><span class="num">10</span><h2>จะเอาขึ้นที่ไหน — GitHub Pages หรือ Vercel</h2></div>
+
+    <div class="good">
+      <h3>ก่อนอื่น: มันไม่ใช่ either/or</h3>
+      <p><b>สร้าง repo ใหม่บน GitHub ยังไงก็ต้องทำ</b> เพราะคุณอยากให้โค้ดอยู่ใน git อยู่แล้ว — คำถามจริงคือ <b>ใครเป็นคนเสิร์ฟไฟล์จาก repo นั้น</b> และ Vercel ก็ดึงจาก GitHub repo เดียวกันนั่นแหละ</p>
+    </div>
+
+    <pre class="code">GitHub repo (ที่เก็บโค้ด — ต้องมีอยู่แล้ว)
+   │
+   ├── เสิร์ฟด้วย GitHub Pages   ← ตัวเลือก A
+   └── เสิร์ฟด้วย Vercel          ← ตัวเลือก B (ต่อกับ repo เดิม)</pre>
+
+    <h3 style="margin-top:22px">ตัวตัดสินจริงมีข้อเดียว — รันโค้ดฝั่งเซิร์ฟเวอร์ได้ไหม</h3>
+    <p class="lead">เพราะคุณจะใช้ Google Sheet เป็นฐานข้อมูล ข้อนี้สำคัญที่สุด</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>GitHub Pages</th><th>Vercel</th></tr></thead>
+        <tbody>
+          <tr><td><b>ไฟล์ static</b></td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td><b>โค้ดฝั่งเซิร์ฟเวอร์ <code>/api/…</code></b></td><td style="color:var(--bad);font-weight:600">❌ ไม่ได้เลย</td><td class="yes">✅ ได้ (ฟรี)</td></tr>
+          <tr><td><b>ต่อ Google Sheet</b></td><td>ต้องให้เบราว์เซอร์ยิงหา Google ตรง ๆ</td><td>ทำ proxy ซ่อน ID ชีตได้</td></tr>
+          <tr><td><b>URL ที่ได้</b></td><td><code>user.github.io/repo-name</code></td><td><code>ชื่อโปรเจกต์.vercel.app</code></td></tr>
+          <tr><td><b>โดเมนของตัวเอง</b></td><td class="yes">✅ ฟรี</td><td class="yes">✅ ฟรี</td></tr>
+          <tr><td><b>วิธี deploy</b></td><td>git push</td><td>git push (เหมือนกัน)</td></tr>
+          <tr><td><b>สถิติคนเข้า</b></td><td class="no">ไม่มี</td><td class="yes">มีในตัว</td></tr>
+          <tr><td><b>ราคา</b></td><td class="yes">ฟรี</td><td class="yes">ฟรี (แผน Hobby)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <h3>🎯 แนะนำ Vercel — ไม่ใช่เพราะเก่งกว่า แต่เพราะไม่ได้ยากกว่า แล้วเหลือทางหนีไว้มากกว่า</h3>
+      <ul class="clean" style="margin-top:8px">
+        <li><b>ไม่ต้องเดิมพันเรื่อง CORS</b> — ถ้าวันหนึ่งยิงตรงหา Google ไม่ได้ คุณเขียน <code>/api/products</code> เพิ่มได้ทันที ส่วน GitHub Pages ทำไม่ได้ ต้องย้ายบ้าน</li>
+        <li><b>URL สวยกว่า</b> — คุณจะต้องพูดลิงก์นี้ในคลิปและแปะใน bio <code>ponnie-review.vercel.app</code> อ่านง่ายกว่า <code>krirk.github.io/ponnie-review</code> เยอะ</li>
+        <li><b>มีสถิติในตัว</b> — รู้ว่าคนกดสินค้าตัวไหน สำหรับ affiliate นี่คือข้อมูลที่มีค่ามาก</li>
+        <li><b>ขั้นตอนเท่ากัน</b> — บางทีง่ายกว่า Pages ด้วยซ้ำ เพราะไม่ต้องยุ่งกับการตั้งค่า branch</li>
+      </ul>
+      <p style="margin-top:10px"><b>เลือก GitHub Pages ถ้า:</b> อยากอยู่ในระบบเดียวไม่ต้องสมัครบริการเพิ่ม และมั่นใจว่าจะไม่ต้องใช้โค้ดฝั่งเซิร์ฟเวอร์เลย</p>
+    </div>
+
+    <h3 style="margin-top:24px">ขั้นตอนทำจริง — ทาง Vercel</h3>
+    <div class="pipe" style="margin-top:10px">
+      <div class="pstep"><div><b>สร้าง repo ใหม่บน GitHub</b><small>ตั้งชื่อเช่น <code>my-review</code> · เป็น private ก็ได้ Vercel อ่านได้ทั้ง public และ private</small></div></div>
+      <div class="pstep"><div><b>วางไฟล์ <code>index.html</code> ไว้ที่ root ของ repo</b><small>ถ้ามีรูป/ไฟล์อื่นใส่โฟลเดอร์ <code>asset/</code> แล้ว push ขึ้นไป</small></div></div>
+      <div class="pstep"><div><b>ไป vercel.com แล้ว Sign up ด้วยบัญชี GitHub</b><small>ไม่ต้องสมัครแยก กดอนุญาตให้ Vercel เห็น repo</small></div></div>
+      <div class="pstep"><div><b>Add New → Project → Import repo ที่เพิ่งสร้าง</b><small>Framework Preset เลือก <b>Other</b> (เพราะเป็น HTML ล้วน ไม่ต้อง build) แล้วกด Deploy</small></div></div>
+      <div class="pstep"><div><b>รอประมาณ 1 นาที ได้ URL <code>ชื่อโปรเจกต์.vercel.app</code></b><small>เปลี่ยนชื่อโปรเจกต์ได้ทีหลังใน Settings → URL เปลี่ยนตาม</small></div></div>
+      <div class="pstep"><div><b>จากนี้ไป <code>git push</code> = deploy อัตโนมัติ</b><small>ไม่ต้องทำอะไรเพิ่มอีกเลย แก้ไฟล์แล้ว push เว็บอัปเดตเอง</small></div></div>
+    </div>
+
+    <h3 style="margin-top:24px">ขั้นตอนทำจริง — ทาง GitHub Pages</h3>
+    <div class="pipe" style="margin-top:10px">
+      <div class="pstep"><div><b>สร้าง repo ใหม่ (ต้องเป็น public ถ้าใช้บัญชีฟรี)</b><small>เคล็ดลับ: ถ้าตั้งชื่อ repo ว่า <code>ชื่อผู้ใช้.github.io</code> จะได้ URL สั้นแบบไม่มีชื่อ repo ต่อท้าย</small></div></div>
+      <div class="pstep"><div><b>วาง <code>index.html</code> ที่ root ของ branch <code>main</code></b><small>ต้องชื่อ <code>index.html</code> เท่านั้น ไม่งั้นจะไม่ขึ้นเป็นหน้าแรก</small></div></div>
+      <div class="pstep"><div><b>Settings → Pages → Source เลือก "Deploy from a branch"</b><small>เลือก branch <code>main</code> โฟลเดอร์ <code>/ (root)</code> แล้วกด Save</small></div></div>
+      <div class="pstep"><div><b>รอ 1–2 นาที ได้ URL <code>ชื่อผู้ใช้.github.io/ชื่อ-repo</code></b><small>รอบแรกอาจนานหน่อย รีเฟรชดูเรื่อย ๆ</small></div></div>
+    </div>
+
+    <h3 style="margin-top:24px">ต่อ Google Sheet เข้ากับเว็บ — 3 ทาง</h3>
+    <div class="scroll" style="margin-top:8px">
+      <table>
+        <thead><tr><th>วิธี</th><th class="mid">ใช้ได้บน</th><th>ข้อดี / ข้อควรระวัง</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Publish to web แล้วอ่าน CSV</b><br><small style="color:var(--ink-faint)">ในชีต: ไฟล์ → แชร์ → เผยแพร่ไปยังเว็บ → เลือก CSV</small></td>
+            <td class="mid">ทั้งคู่</td>
+            <td>ง่ายที่สุด ได้ลิงก์ CSV ถาวรมาใช้เลย · <b>แต่ลิงก์นั้นใครเปิดก็เห็นข้อมูลทั้งชีต</b> — อย่าเก็บอะไรที่เป็นความลับไว้ในชีตเดียวกัน</td>
+          </tr>
+          <tr>
+            <td><b>Google Apps Script Web App</b><br><small style="color:var(--ink-faint)">เขียนสคริปต์สั้น ๆ ในชีต แล้ว Deploy เป็น Web App</small></td>
+            <td class="mid">ทั้งคู่</td>
+            <td>ฟรี · ซ่อน ID ชีตได้ · คุมได้ว่าจะส่งคอลัมน์ไหนออกไปบ้าง · <b>ทางออกที่ดีถ้าเลือก GitHub Pages</b></td>
+          </tr>
+          <tr>
+            <td><b>API route บน Vercel</b><br><small style="color:var(--ink-faint)">ไฟล์เดียวใน <code>/api/products</code></small></td>
+            <td class="mid">Vercel เท่านั้น</td>
+            <td><b>วิธีที่เว็บตัวอย่างใช้</b> · ซ่อน ID ได้ คุม cache ได้ · ยืดหยุ่นที่สุด</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn">
+      <p>⚠️ <b>เรื่อง CORS ที่ต้องเทสต์เอง</b> — การให้เบราว์เซอร์ยิงหา Google Sheets ตรง ๆ พึ่งพา CORS ซึ่ง <b>Google เปลี่ยนพฤติกรรมตรงนี้มาหลายรอบ</b> <span class="tag t-niche">ยืนยันไม่ได้</span></p>
+      <p style="margin-top:8px"><b>วิธีเทสต์เร็ว ๆ:</b> เอาลิงก์ CSV ที่ได้จาก Publish to web ไปเปิดในแท็บใหม่ ถ้าโหลดขึ้นแปลว่าลิงก์ใช้ได้ จากนั้นลอง <code>fetch()</code> จากหน้าเว็บจริงดู — ถ้าติด CORS ให้ข้ามไปใช้ Apps Script หรือ API route</p>
+    </div>
+
+    <div class="good">
+      <h3>อย่าเสียเวลากับข้อนี้เยอะ — มันย้อนกลับได้ง่ายมาก</h3>
+      <p>ทั้งคู่เสิร์ฟไฟล์ static ชุดเดียวกัน ถ้าเริ่มที่ GitHub Pages แล้วอยากย้ายมา Vercel <b>แค่ชี้ Vercel ไปที่ repo เดิม ใช้เวลา 5 นาที</b> ไฟล์ไม่ต้องแก้สักบรรทัด</p>
+      <p style="margin-top:10px">การตัดสินใจที่ส่งผลจริงคือ<b>ชั้นข้อมูล</b> (โครงคอลัมน์ในชีต) ไม่ใช่ว่าใครเสิร์ฟไฟล์ — ชั้นนั้นย้ายทีหลังยากกว่ามาก</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="note">
+      <h3>สรุปแท็บนี้ — 2 อย่างทำวันนี้ 1 อย่างทำทีหลัง</h3>
+      <div class="scroll" style="margin-top:10px">
+        <table>
+          <thead><tr><th class="mid">เมื่อไหร่</th><th>ทำอะไร</th><th>ใช้เวลา</th></tr></thead>
+          <tbody>
+            <tr><td class="mid"><span class="tag t-must">วันนี้</span></td><td><b>สร้าง link-in-bio</b> แล้วเอาลิงก์ไปใส่ bio ทุกแพลตฟอร์ม</td><td>~20 นาที</td></tr>
+            <tr><td class="mid"><span class="tag t-must">วันนี้</span></td><td><b>เปิด Google Sheet</b> แล้วกรอกทุกครั้งที่ถ่ายคลิปเสร็จ 1 ตัว</td><td>~1 นาที/สินค้า</td></tr>
+            <tr><td class="mid"><span class="tag t-maybe">~50–100 คลิป</span></td><td><b>ทำเว็บรวมสินค้า</b> — repo ใหม่บน GitHub + deploy ด้วย Vercel (ข้อ 10) แล้วเอาไปแปะเป็นปุ่มบนสุดของ link-in-bio</td><td>ไม่กี่วัน</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:14px">สองข้อแรกคือสิ่งที่ทำให้ข้อที่สาม<b>ใช้เวลาไม่กี่วันแทนที่จะเป็นหลายสัปดาห์</b> — พอถึงวันที่มีคนถามว่า "ลิงก์อยู่ไหน" คุณจะมีข้อมูลพร้อมแล้ว ไม่ต้องย้อนไปรื้อประวัติการสั่งซื้อ 100 รายการ</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <p><b>CapCut × Shopee Video — คู่มือรวม 6 แท็บ</b> · ข้อมูล ณ ก.ค. 2026</p>
+    <p><b>CapCut × Shopee Video — คู่มือรวม 7 แท็บ</b> · ข้อมูล ณ ก.ค. 2026</p>
     <p>รวมจาก <code>ChatGPT.html</code> · <code>gemini-code-1784687864241.html</code> · <code>shopee-video-capcut-playbook.html</code> — เนื้อหาต้นฉบับคงไว้ตามเดิม ยกเว้นตาราง Free/Pro ของ Gemini ที่ต้นฉบับใช้แท็กผิดจนตารางแตก</p>
     <p>CapCut และ Shopee เปลี่ยนฟีเจอร์บ่อยและต่างกันตามภูมิภาค — ควรเช็กในแอปอีกครั้งก่อนตัดสินใจจ่ายเงิน</p>
   </div>
