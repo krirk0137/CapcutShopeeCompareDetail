@@ -1,0 +1,2 @@
+# CapcutShopeeCompareDetail
+CapcutShopeeCompareDetail
